@@ -1,0 +1,77 @@
+
+h1{
+    position:relative;
+    right:10px;
+    font-size: 60px;
+    color: black;
+  }
+  form{
+    position: relative;
+    font-size: 26;
+    padding: 20px;
+    position: relative;
+    left: 250px;
+    width: 320px;
+    height: 700px;
+  }
+  input{
+    padding: 10px;
+    font-size: inherit;
+  }
+  input[type = "text"]{
+    display: block;
+    margin-bottom: 25px;
+    width: 1000px;
+    border: 2px solid black;
+  }
+  input[type = "date"]{
+    display: block;
+    margin-bottom: 25px;
+    width: 280px;
+    border: 2px solid black;
+  }
+  select[name = "gender"]{
+    padding: 10px;
+    display: block;
+    margin-bottom: 25px;
+    width: 150px;
+    border: 2px solid black;
+  }
+  input[type = "tel"]{
+    display: block;
+    margin-bottom: 25px;
+    width: 280px;
+    border: 2px solid black;
+  }
+  Button[type = "submit"]{
+    position: relative;
+    left: 400px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    width: 60%;
+    margin: 0;
+  }
+  img {
+    position: relative;
+    right: 200px;
+    float: left;
+  }
+  label[for = "Name"]{
+    position: relative;
+    right: 70px;
+    
+  }
+  label[for = "Name"]{
+    position: relative;
+    
+  }
+  label[for = "Name"]{
+    position: relative;
+    
+  }
+  label[for = "Name"]{
+    position: relative;
+    
+  }
