@@ -1,124 +1,86 @@
-import './ProfileView.css';
+
 import React, { Component } from 'react'
-import {InputGroup, InputGroupAddon,Jumbotron, Container, InputGroupText, Col, Row, Button,Form,FormGroup, Input} from 'reactstrap';
+import { Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 
 
 export class ProfileView extends Component {
     render() {
         return (
-          <div className="ProfileView">
-        <Form>
-      <Jumbotron fluid>
-        <Container fluid>
-        <FormGroup>
-          <Col md={10}>
-          <h1>Profile settings</h1>
-            <Row form>
-              <Col md={6}>
-                 
-              </Col>
-            </Row>
-                
-          </Col>
-        </FormGroup>
-        </Container>
-      </Jumbotron>
+          <div className="container col-lg-5 my-3">
+                <div className="min-vh-100 d-flex flex-column justify-content-center">
+                    <Form className="bg-light px-5 py-3">
+                        <h3 className="text-center">Profile Settings</h3>
+                        <hr className="mb-5" />
+                        <Row>
+                            <Col md="6">
+                                <FormGroup>
+                                    <Label for="firstname">First Name</Label>
+                                    <Input type="text" name="firstname" id="firstname" placeholder="Enter First Name" />
+                                </FormGroup>
+                            </Col>
+                            <Col md="6">
+                                <FormGroup>
+                                    <Label for="lastname">Last Name</Label>
+                                    <Input type="text" name="lastname" id="lastname" placeholder="Enter Last Name" />
+                                </FormGroup>
+                            </Col>
+                        </Row>
 
-        <FormGroup className="mt-2">
-          <Col md={10}>
-             <Input type="Name" name="Name" id="exampleName" placeholder="Name" />
-          </Col>
-        </FormGroup>
+                        <FormGroup>
+                            <Label for="dob">Date of Birth</Label>
+                            <Input type="date" name="dob" id="dob" />
+                        </FormGroup>
 
-      <Row className="mt-2">
-        <Col md={3}>
-          <FormGroup className="mt-2">
-            <Col md={0}>
-              <Input type="select" name="select" id="exampleSelect">
-              <option>Select Gender</option>
-              <option>Male</option>
-              <option>Female</option>
-              </Input>
-            </Col>
-          </FormGroup>
-        </Col>
-        <Col>
-          <Col md={4}>
-          <FormGroup className="mt-2">
-          <InputGroup>
-            <InputGroupAddon addonType="prepend">
-            <InputGroupText>Date of birth</InputGroupText>
-            </InputGroupAddon>
-              <Input
-              type="date"
-              name="date"
-              id="exampleDate"
-              placeholder="date placeholder"/>
-            </InputGroup>
-          </FormGroup>
-         </Col>
-      </Col>
-      </Row>
-    
-      <FormGroup className="mt-2">
-        <Col md={10}>
-          <Input type="Address" name="Address" id="exampleAddress" placeholder="Address" />
-        </Col>
-      </FormGroup>
-          
-      <FormGroup className="mt-2">
-        <Col md={5}>
-          <Input type="TPno" name="ContactNUM" id="exampleContactNUM" placeholder="ContactNumber" />
-        </Col>
-      </FormGroup>
+                        <FormGroup>
+                            <Label for="gender">Gender</Label>
+                            <Input type="select" name="gender" id="gender">
+                                <option className="d-none">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </Input>
+                        </FormGroup>
 
+                        <FormGroup>
+                            <Label for="address">Address</Label>
+                            <Input type="text" name="address" id="address" placeholder="Enter Address" />
+                        </FormGroup>
 
-      <Row>
-        <Col md={3}>
-          <FormGroup className="mt-2">
-            <Col md={0}>
-              <InputGroup>
-                <Input
-                  type="number"
-                  name="number"
-                  id="exampleNumber"
-                  placeholder="Height"
-                /> 
-              <InputGroupAddon addonType="append">
-              <InputGroupText>cm</InputGroupText>
-              </InputGroupAddon>
-              </InputGroup>
-            </Col>
-          </FormGroup>
-        </Col>
-        <Col>
-        <Col md={4}>
-          <FormGroup className="mt-2">
-            <InputGroup>
-              <Input
-                type="number"
-                name="number"
-                id="exampleNumber"
-                placeholder="Weight"/> 
-            <InputGroupAddon addonType="append">
-            <InputGroupText>Kg</InputGroupText>
-            </InputGroupAddon>
-            </InputGroup>
-          </FormGroup>
-        </Col>
-        </Col>
-      </Row>
+                        <FormGroup>
+                            <Label for="phone">Phone Number</Label>
+                            <Input type="tel" name="phone" id="phone" placeholder="Enter Phone Number" />
+                        </FormGroup>
 
-      <FormGroup className="mt-2">
-        <Col md={10}>
-        <Button color="secondary" type='submit'>Save changes</Button>
-        </Col>
-      </FormGroup>
-      
-  
-      </Form>
-        </div>
-            
+                        <Row>
+                            <Col md="6">
+                                <FormGroup>
+                                    <Label for="height">Height</Label>
+                                    <InputGroup>
+                                        <Input type="number" name="height" id="height" placeholder="Height" />
+                                        <InputGroupAddon addonType="append">
+                                            <InputGroupText>cm</InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>
+                                </FormGroup>
+                            </Col>
+                            <Col md="6">
+                                <FormGroup>
+                                    <Label for="weight">Weight</Label>
+                                    <InputGroup>
+                                        <Input type="number" name="weight" id="weight" placeholder="Weight" />
+                                        <InputGroupAddon addonType="append">
+                                            <InputGroupText>Kg</InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>
+                                </FormGroup>
+                            </Col>
+                        </Row>
+
+                        <FormGroup className="mt-3">
+                            <Button className="btn-block">Save Changes</Button>
+                        </FormGroup>
+                    </Form>
+                </div >
+            </div>
         )
     }
 }
