@@ -1,60 +1,59 @@
-import './CreatePatient.css';
 import React, { Component } from 'react'
-import {Button} from 'reactstrap'
+import { Col, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
-
-export class CreatePatient extends React.Component {
-    state = {
-        Name:'',
-        dob:'',
-        gender:'',
-        address:'',
-        contact:''
-    }
-
-    change = e =>{
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    }
-
-    onSubmit = e => {
-        e.preventDefault();
-        console.log(this.state);
-    }
-    
-    
+export class CreatePatient extends Component {
     render() {
         return (
-            <div className="CreatePatient">
-                <form>
-                    <h1><b>Create Profile</b></h1>
-                    <img src="/images/arrow.png" alt='arrow' width="70" height="70"/>
-                    <br />
-                    <label for="Name" ><b>Name:</b></label>
-                    <input name='Name' type="text" placeholder='Enter Your Name' value={this.state.Name} onChange={e => this.change(e)}/>
-                    
-                    <label for="dob"><b>Date of Birth:</b></label>
-                    <input name='dob' type="date" placeholder='Enter Date of Birth' value={this.state.dob} onChange={e => this.change(e)}/>
-                    
-                    <label for="gender"><b>Gender:</b></label>
-                    <select name='gender' placeholder='Select Gender' value={this.state.gender} onChange={e => this.change(e)}>
-                        <option value="" disabled selected hidden>Select Gender</option>
-                        <option value="Male">Male</option> 
-                        <option value="Female">Female</option>  
-                    </select>
-                    
-                    <label for="address"><b>Address:</b></label>
-                    <input name='address' type="text" placeholder='Enter Home Address' value={this.state.address} onChange={e => this.change(e)}/>
-                    
-                    <label for="contact"><b>Contact Number:</b></label>
-                    <input name='contact'  type="tel"  placeholder='Enter Your Contact Number' value={this.state.contact} onChange={e => this.change(e)}/>
-                    
-                    <Button color="primary" type='submit' onClick={e => this.onSubmit(e)}>Create Profile</Button>
-                </form>
+            <div className="container col-lg-5 my-3 min-vh-100 d-flex flex-column justify-content-center">
+                <Form className="bg-light p-5">
+                    <h3 className="text-center">Create Profile</h3>
+                    <hr className="mb-5" />
+                    <Row>
+                        <Col md="6">
+                            <FormGroup>
+                                <Label for="firstname">First Name</Label>
+                                <Input type="text" name="firstname" id="firstname" placeholder="Enter First Name" />
+                            </FormGroup>
+                        </Col>
+                        <Col md="6">
+                            <FormGroup>
+                                <Label for="lastname">Last Name</Label>
+                                <Input type="text" name="lastname" id="lastname" placeholder="Enter Last Name" />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+
+                    <FormGroup>
+                        <Label for="dob">Date of Birth</Label>
+                        <Input type="date" name="dob" id="dob" />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label for="gender">Gender</Label>
+                        <Input type="select" name="gender" id="gender">
+                            <option className="d-none">Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </Input>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label for="address">Address</Label>
+                        <Input type="text" name="address" id="address" placeholder="Enter Address" />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label for="phone">Phone Number</Label>
+                        <Input type="tel" name="phone" id="phone" placeholder="Enter Phone Number" />
+                    </FormGroup>
+
+                    <FormGroup className="mt-5">
+                        <Button className="btn-block">Create Profile</Button>
+                    </FormGroup>
+                </Form>
             </div>
         )
     }
 }
 
-export  default CreatePatient;
+export default CreatePatient;
