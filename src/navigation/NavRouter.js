@@ -7,6 +7,7 @@ import SignupView from '../containers/SignupView/SignupView';
 import PatientsDashboard from '../containers/PatientsDashboard/PatientsDashboard';
 import DoctorsDashboard from '../containers/DoctorsDashboard/DoctorsDashboard';
 import CreatePatient from '../containers/CreatePatient/CreatePatient';
+import PatientsAppointments from '../containers/PatientsAppointments/PatientsAppointments';
 
 
 class NavRouter extends Component {
@@ -35,6 +36,9 @@ class NavRouter extends Component {
                     </Route>
                     <Route path="/patient/new">
                         <CreatePatient />
+                    </Route>
+                    <Route path="/patient/appointments">
+                        <PatientsAppointments />
                     </Route>
                 </Switch>
             </BrowserRouter >
