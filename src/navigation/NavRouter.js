@@ -9,8 +9,8 @@ import DoctorsDashboard from '../containers/DoctorsDashboard/DoctorsDashboard';
 import CreatePatient from '../containers/CreatePatient/CreatePatient';
 import PatientsAppointments from '../containers/PatientsAppointments/PatientsAppointments';
 import PatientsHistory from '../containers/PatientsHistory/PatientsHistory';
-
 import ProfileView from '../containers/ProfileView/ProfileView';
+import ResetView from '../containers/ResetView/ResetView';
 
 class NavRouter extends Component {
 
@@ -27,8 +27,8 @@ class NavRouter extends Component {
                     <Route path="/signup">
                         <SignupView />
                     </Route>
-                    <Route path="/signup">
-                        <SignupView />
+                    <Route path="/reset">
+                        <ResetView />
                     </Route>
                     <Route path="/patient/dashboard">
                         <PatientsDashboard />
@@ -46,7 +46,7 @@ class NavRouter extends Component {
                         <PatientsHistory />
                     </Route>
                     <Route path="/patient/edit">
-                        <ProfileView/>
+                        <ProfileView />
                     </Route>
                 </Switch>
             </BrowserRouter >
