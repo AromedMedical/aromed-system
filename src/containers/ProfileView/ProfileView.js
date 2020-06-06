@@ -1,13 +1,14 @@
-
 import React, { Component } from 'react'
 import { Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 
+import SideBar from '../../components/Sidebar/Sidebar';
 
 export class ProfileView extends Component {
     render() {
         return (
-          <div className="container col-lg-5 my-3">
-                <div className="min-vh-100 d-flex flex-column justify-content-center">
+            <div className="col-lg-12">
+                <SideBar />
+                <div className="container col-lg-5 py-5">
                     <Form className="bg-light px-5 py-3">
                         <h3 className="text-center">Profile Settings</h3>
                         <hr className="mb-5" />
@@ -79,8 +80,8 @@ export class ProfileView extends Component {
                             <Button className="btn-block">Save Changes</Button>
                         </FormGroup>
                     </Form>
-                </div >
-            </div>
+                </div>
+            </div >
         )
     }
 }
