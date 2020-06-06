@@ -1,18 +1,36 @@
 import React, { Component } from 'react'
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 
-import './Sidebar.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 export class Sidebar extends Component {
     render() {
         return (
-            <div id="sidebar-wrapper">
-                <ul className="sidebar-nav">
-                    <li><a href="#">Upcoming Appointments</a></li>
-                    <li><a href="#">Previous Appointments</a></li>
-                    <li><a href="#">Profile Settings</a></li>
-                </ul>
-            </div>
-        )
+            <SideNav className="Sidebar bg-dark">
+                <SideNav.Toggle />
+                <SideNav.Nav defaultSelected="upcomming">
+                    <NavItem eventKey="upcomming">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-calendar-check-o" style={{ fontSize: "1.75em", 'color': 'white' }} />
+                        </NavIcon>
+                        <NavText style={{ 'color': 'white' }}>Appointments</NavText>
+                    </NavItem>
+                    <NavItem eventKey="history">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-history" style={{ fontSize: "1.75em", 'color': 'white' }} />
+                        </NavIcon>
+                        <NavText style={{ 'color': 'white' }}>History</NavText>
+                    </NavItem>
+                    <NavItem eventKey="settings">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-cogs" style={{ fontSize: "1.75em", 'color': 'white' }} />
+                        </NavIcon>
+                        <NavText style={{ 'color': 'white' }}>Settings</NavText>
+                    </NavItem>
+                </SideNav.Nav>
+            </SideNav>
+        );
     }
 }
 
