@@ -5,8 +5,6 @@ import {
     Container, Row, Col, Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle
 } from 'reactstrap';
 
-import NavBar from '../../components/NavBar/NavBar';
-
 export class HomeView extends Component {
     items = [
         {
@@ -183,7 +181,6 @@ export class HomeView extends Component {
         return (
             <div>
                 <div>
-                    <NavBar />
                     <UncontrolledCarousel items={this.items} />
                 </div>
                 <div>
@@ -237,9 +234,9 @@ export class HomeView extends Component {
                                     <div className="py-0">
                                         <h3 className="my-4 text-white">AromedMedical</h3>
                                         <p className="footer-links font-weight-bold">
-                                            <a className="text-white mr-2" href="#">Home</a>
-                                            <a className="text-white mr-2" href="#">Appointment</a>
-                                            <a className="text-white mr-2" href="#">Doctors</a>
+                                            <a className="text-white mr-2" href="/">Home</a>
+                                            <a className="text-white mr-2" href="/">Appointment</a>
+                                            <a className="text-white mr-2" href="/">Doctors</a>
                                         </p>
                                         <p className="text-light py-4 mb-4">&copy;2020 All rights reserved</p>
                                     </div>
