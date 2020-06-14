@@ -1,6 +1,6 @@
 # Aromed-web
 
-An web-based Appointment Booking System for a Channeling Center.
+A web-based Appointment Booking System for a Channeling Center.
 
 ## Getting Started
 
@@ -18,27 +18,34 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
 
 2. Install packages:
 
-    npm
+    **Using npm**
     ```
     npm install
     ```
     
-    yarn
+    **Using yarn**
     ```
     yarn
     ```
 
 3. Run the server:
 
-    npm
+    **Using npm**
     ```
     npm start
     ```
     
-    yarn
+    **Using yarn**
     ```
     yarn start
     ```
+
+## Built With
+
+* [React](https://github.com/facebook/react)
+* [Bootstrap](https://github.com/twbs/bootstrap)
+* [Reactstrap](https://github.com/reactstrap/reactstrap)
+* [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
 
 ## Authors
 

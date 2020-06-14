@@ -12,44 +12,49 @@ import PatientsHistory from '../containers/PatientsHistory/PatientsHistory';
 import ProfileView from '../containers/ProfileView/ProfileView';
 import ResetView from '../containers/ResetView/ResetView';
 
+import NavBar from '../components/NavBar/NavBar';
+
 class NavRouter extends Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/">
-                        <HomeView />
-                    </Route>
-                    <Route path="/login">
-                        <LoginView />
-                    </Route>
-                    <Route path="/signup">
-                        <SignupView />
-                    </Route>
-                    <Route path="/reset">
-                        <ResetView />
-                    </Route>
-                    <Route path="/patient/dashboard">
-                        <PatientsDashboard />
-                    </Route>
-                    <Route path="/doctor/dashboard">
-                        <DoctorsDashboard />
-                    </Route>
-                    <Route path="/patient/new">
-                        <CreatePatient />
-                    </Route>
-                    <Route path="/patient/appointments">
-                        <PatientsAppointments />
-                    </Route>
-                    <Route path="/patient/history">
-                        <PatientsHistory />
-                    </Route>
-                    <Route path="/patient/edit">
-                        <ProfileView />
-                    </Route>
-                </Switch>
-            </BrowserRouter >
+            <div>
+                <NavBar />
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/">
+                            <HomeView />
+                        </Route>
+                        <Route path="/login">
+                            <LoginView />
+                        </Route>
+                        <Route path="/signup">
+                            <SignupView />
+                        </Route>
+                        <Route path="/reset">
+                            <ResetView />
+                        </Route>
+                        <Route path="/patient/dashboard">
+                            <PatientsDashboard />
+                        </Route>
+                        <Route path="/doctor/dashboard">
+                            <DoctorsDashboard />
+                        </Route>
+                        <Route path="/patient/new">
+                            <CreatePatient />
+                        </Route>
+                        <Route path="/patient/appointments">
+                            <PatientsAppointments />
+                        </Route>
+                        <Route path="/patient/history">
+                            <PatientsHistory />
+                        </Route>
+                        <Route path="/patient/edit">
+                            <ProfileView />
+                        </Route>
+                    </Switch>
+                </BrowserRouter >
+            </div>
         )
     }
 }
