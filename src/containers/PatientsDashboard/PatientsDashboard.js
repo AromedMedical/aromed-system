@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import _ from 'lodash';
 import {
-    Container, Card, CardTitle, CardBody, Button, CardImg, CardColumns, Row, Col
+    Container, Card, CardTitle, CardBody, Button, CardImg, Row, Col
 } from 'reactstrap';
 
 export class PatientsDashboard extends Component {
