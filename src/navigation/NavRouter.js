@@ -13,6 +13,7 @@ import ProfileView from '../containers/ProfileView/ProfileView';
 import ResetView from '../containers/ResetView/ResetView';
 
 import NavBar from '../components/NavBar/NavBar';
+import AccountSettings from '../containers/AccountSettings/AccountSettings';
 
 class NavRouter extends Component {
 
@@ -51,6 +52,9 @@ class NavRouter extends Component {
                         </Route>
                         <Route path="/patient/edit">
                             <ProfileView />
+                        </Route>
+                        <Route path="/settings">
+                            <AccountSettings />
                         </Route>
                     </Switch>
                 </BrowserRouter >
