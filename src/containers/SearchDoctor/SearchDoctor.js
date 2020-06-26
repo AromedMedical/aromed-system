@@ -5,63 +5,7 @@ import {
 } from 'reactstrap';
 
 export class SearchDoctor extends Component {
-    Doctors = [
-        {
-            name: 'Dr.Pradeepa',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Prabani',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Prasanna',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Chamara',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Krishni',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Chalani',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Chathuni',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Isuru',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Indika',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Madawa',
-            speciality: '',
-            qualification: ''
-        },
-        {
-            name: 'Dr.Eranga',
-            speciality: '',
-            qualification: ''
-        }
-    ]
+    Doctors = []
 
     renderProfiles = () => {
         return (
@@ -71,7 +15,7 @@ export class SearchDoctor extends Component {
                         <Card className="h-100 shadow" style={{ 'background': '#FFF', 'color': '#000' }}>
                             <CardImg src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/avatar-512.png" style={{ objectFit: 'cover' }} />
                             <CardBody>
-                                <CardTitle className="text-center" >{dprofile.name}</CardTitle>
+                                <CardTitle className="text-center" >{dprofile}</CardTitle>
                                 <hr />
                                 <Button className="btn-block">Visit Profile</Button>
                                 
