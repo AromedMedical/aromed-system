@@ -14,6 +14,7 @@ import ResetView from '../containers/ResetView/ResetView';
 
 import NavBar from '../components/NavBar/NavBar';
 import AccountSettings from '../containers/AccountSettings/AccountSettings';
+import SearchDoctor from '../containers/SearchDoctor/SearchDoctor';
 
 class NavRouter extends Component {
 
@@ -55,6 +56,9 @@ class NavRouter extends Component {
                         </Route>
                         <Route path="/settings">
                             <AccountSettings />
+                        </Route>
+                        <Route path="/doctors">
+                            <SearchDoctor />
                         </Route>
                     </Switch>
                 </BrowserRouter >
