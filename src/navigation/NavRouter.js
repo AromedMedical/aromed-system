@@ -6,6 +6,7 @@ import LoginView from '../containers/LoginView/LoginView';
 import SignupView from '../containers/SignupView/SignupView';
 import ResetView from '../containers/ResetView/ResetView';
 import AccountSettings from '../containers/AccountSettings/AccountSettings';
+import SearchDoctor from '../containers/SearchDoctor/SearchDoctor';
 import CreateAppointment from '../containers/CreateAppointment/CreateAppointment';
 import PatientsDashboard from '../containers/PatientsDashboard/PatientsDashboard';
 import CreatePatient from '../containers/CreatePatient/CreatePatient';
@@ -38,6 +39,9 @@ class NavRouter extends Component {
                         </Route>
                         <Route path="/settings">
                             <AccountSettings />
+                        </Route>
+                        <Route path="/doctors">
+                            <SearchDoctor />
                         </Route>
                         <Route path="/appointment">
                             <CreateAppointment />
