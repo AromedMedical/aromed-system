@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Col, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
 export class AccountSettings extends Component {
     render() {
