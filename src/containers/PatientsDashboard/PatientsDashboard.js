@@ -6,41 +6,7 @@ import {
 
 export class PatientsDashboard extends Component {
 
-    Profiles = [
-        {
-            name: 'Pradeepa',
-        },
-        {
-            name: 'Prabani',
-        },
-        {
-            name: 'Prasanna',
-        },
-        {
-            name: 'Chamara',
-        },
-        {
-            name: 'Krishni',
-        },
-        {
-            name: 'Chalani',
-        },
-        {
-            name: 'Chathuni',
-        },
-        {
-            name: 'Isuru',
-        },
-        {
-            name: 'Indika',
-        },
-        {
-            name: 'Madawa',
-        },
-        {
-            name: 'Eranga',
-        }
-    ]
+    Profiles = []
 
     renderProfiles = () => {
         return (
