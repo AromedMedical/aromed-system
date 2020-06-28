@@ -4,16 +4,17 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import HomeView from '../containers/HomeView/HomeView'
 import LoginView from '../containers/LoginView/LoginView';
 import SignupView from '../containers/SignupView/SignupView';
+import ResetView from '../containers/ResetView/ResetView';
+import AccountSettings from '../containers/AccountSettings/AccountSettings';
+import CreateAppointment from '../containers/CreateAppointment/CreateAppointment';
 import PatientsDashboard from '../containers/PatientsDashboard/PatientsDashboard';
-import DoctorsDashboard from '../containers/DoctorsDashboard/DoctorsDashboard';
 import CreatePatient from '../containers/CreatePatient/CreatePatient';
+import ProfileView from '../containers/ProfileView/ProfileView';
 import PatientsAppointments from '../containers/PatientsAppointments/PatientsAppointments';
 import PatientsHistory from '../containers/PatientsHistory/PatientsHistory';
-import ProfileView from '../containers/ProfileView/ProfileView';
-import ResetView from '../containers/ResetView/ResetView';
+import DoctorsDashboard from '../containers/DoctorsDashboard/DoctorsDashboard';
 
 import NavBar from '../components/NavBar/NavBar';
-import AccountSettings from '../containers/AccountSettings/AccountSettings';
 
 class NavRouter extends Component {
 
@@ -35,14 +36,20 @@ class NavRouter extends Component {
                         <Route path="/reset">
                             <ResetView />
                         </Route>
+                        <Route path="/settings">
+                            <AccountSettings />
+                        </Route>
+                        <Route path="/appointment">
+                            <CreateAppointment />
+                        </Route>
                         <Route path="/patient/dashboard">
                             <PatientsDashboard />
                         </Route>
-                        <Route path="/doctor/dashboard">
-                            <DoctorsDashboard />
-                        </Route>
                         <Route path="/patient/new">
                             <CreatePatient />
+                        </Route>
+                        <Route path="/patient/edit">
+                            <ProfileView />
                         </Route>
                         <Route path="/patient/appointments">
                             <PatientsAppointments />
@@ -50,11 +57,8 @@ class NavRouter extends Component {
                         <Route path="/patient/history">
                             <PatientsHistory />
                         </Route>
-                        <Route path="/patient/edit">
-                            <ProfileView />
-                        </Route>
-                        <Route path="/settings">
-                            <AccountSettings />
+                        <Route path="/doctor/dashboard">
+                            <DoctorsDashboard />
                         </Route>
                     </Switch>
                 </BrowserRouter >
