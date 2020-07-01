@@ -1,23 +1,37 @@
 import React, { Component } from 'react'
 import _ from 'lodash';
 import {
-    UncontrolledCarousel,
-    Container, Row, Col, Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle
+    Container, Row, Col, Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle, Button
 } from 'reactstrap';
 
+import AwesomeSlider from 'react-awesome-slider';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import 'react-awesome-slider/dist/styles.css';
+
+const AutoplaySlider = withAutoplay(AwesomeSlider);
+
 export class HomeView extends Component {
-    items = [
+
+    sliderItems = [
         {
-            src: 'https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg',
-            altText: 'Slide 1',
-            key: '1'
+            styles: {
+                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg)',
+                backgroundSize: 'cover'
+            }
         },
         {
-            src: 'https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg',
-            altText: 'Slide 2',
-            key: '2'
+            styles: {
+                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg)',
+                backgroundSize: 'cover'
+            }
+        },
+        {
+            styles: {
+                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg)',
+                backgroundSize: 'cover'
+            }
         }
-    ];
+    ]
 
     doctors = [
         {
@@ -92,6 +106,7 @@ export class HomeView extends Component {
                             <CardTitle><p className="font-weight-bold">APPOINTMENTS</p></CardTitle>
                             <CardText>Make a reservation ahead of time to guarantee your spot. You can now make appointments through our website or give us a call.</CardText>
                             <CardText><p className="font-weight-bold">{this.details.phone}</p></CardText>
+                            <Button className="btn-block" color="primary" style={{ 'backgroundColor': 'transparent', 'border': '1px solid white' }}>MAKE AN APPOINTMENT</Button>
                         </CardBody>
                     </Card>
                 </Col >
@@ -100,6 +115,7 @@ export class HomeView extends Component {
                         <CardBody>
                             <CardTitle><p className="font-weight-bold">DOCTORS TIMETABLE</p></CardTitle>
                             <CardText>Our staff is always available at your service whenever you need us. In case of an emergency, our doctors are always at your service.</CardText>
+                            <Button className="btn-block" color="primary" style={{ 'backgroundColor': 'transparent', 'border': '1px solid white' }}>FIND A DOCTOR</Button>
                         </CardBody>
                     </Card>
                 </Col >
@@ -107,6 +123,9 @@ export class HomeView extends Component {
                     <Card className="h-100" style={{ 'background': '#448AFF', 'color': '#FFF' }}>
                         <CardBody>
                             <CardTitle><p className="font-weight-bold">OPENING HOURS</p></CardTitle>
+                            <p>Mon - Fri <span style={{ 'position': 'absolute', 'right': '20px' }}>08:00 - 21:00</span></p><hr style={{ 'backgroundColor': 'white' }} />
+                            <p>Sat - Sun <span style={{ 'position': 'absolute', 'right': '20px' }}>08:00 - 17:00</span></p><hr style={{ 'backgroundColor': 'white' }} />
+                            <p>Poya Days <span style={{ 'position': 'absolute', 'right': '20px' }}>Closed</span></p><hr style={{ 'backgroundColor': 'white' }} />
                         </CardBody>
                     </Card>
                 </Col >
@@ -158,7 +177,7 @@ export class HomeView extends Component {
                     <Col md="3" className="p-2">
                         <Card className="h-100 shadow" style={{ 'background': '#FFF', 'color': '#000' }}>
                             <CardBody>
-                                <CardTitle>{department.title}</CardTitle>
+                                <CardTitle className="font-weight-bold">{department.title}</CardTitle>
                                 <CardText>{department.description}</CardText>
                             </CardBody>
                         </Card>
@@ -168,11 +187,41 @@ export class HomeView extends Component {
         )
     }
 
+    renderSlider = () => {
+        return (
+            _.map(this.sliderItems, (item) => {
+                return (
+                    <div style={item.styles} className="p-3">
+                        <div class="row">
+                            <div style={{ 'font-size': '4vw' }} className="col-md-8 text-white mb-3">Welcome to Aromed Medical Channeled Center</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 ml-3 mb-3">
+                                <Button class="btn-block" color="primary" outline>MAKE AN APPOINTMENT</Button>
+                            </div>
+                            <div class="col-xs-6 ml-3 mr-3">
+                                <Button class="btn-block" color="primary" outline>FIND A DOCTOR</Button>
+                            </div>
+
+                        </div>
+                    </div >
+                )
+            })
+        )
+    }
+
     render() {
         return (
             <div>
                 <div>
-                    <UncontrolledCarousel items={this.items} />
+                    <AutoplaySlider
+                        buttons={false}
+                        bullets={false}
+                        play={true}
+                        cancelOnInteraction={false}
+                        interval={3000}>
+                        {this.renderSlider()}
+                    </AutoplaySlider>
                 </div>
                 <div>
                     <Container>
@@ -246,7 +295,7 @@ export class HomeView extends Component {
                         </div>
                     </div>
                 </footer>
-            </div>
+            </div >
         )
     }
 }
