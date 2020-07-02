@@ -21,13 +21,13 @@ export class HomeView extends Component {
         },
         {
             styles: {
-                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg)',
+                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-2.jpg)',
                 backgroundSize: 'cover'
             }
         },
         {
             styles: {
-                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg)',
+                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-3.jpg)',
                 backgroundSize: 'cover'
             }
         }
@@ -106,7 +106,7 @@ export class HomeView extends Component {
                             <CardTitle><p className="font-weight-bold">APPOINTMENTS</p></CardTitle>
                             <CardText>Make a reservation ahead of time to guarantee your spot. You can now make appointments through our website or give us a call.</CardText>
                             <CardText><p className="font-weight-bold">{this.details.phone}</p></CardText>
-                            <Button className="btn-block" color="primary" style={{ 'backgroundColor': 'transparent', 'border': '1px solid white' }}>MAKE AN APPOINTMENT</Button>
+                            <button className="btn-block CardButton" >MAKE AN APPOINTMENT</button>
                         </CardBody>
                     </Card>
                 </Col >
@@ -115,7 +115,7 @@ export class HomeView extends Component {
                         <CardBody>
                             <CardTitle><p className="font-weight-bold">DOCTORS TIMETABLE</p></CardTitle>
                             <CardText>Our staff is always available at your service whenever you need us. In case of an emergency, our doctors are always at your service.</CardText>
-                            <Button className="btn-block" color="primary" style={{ 'backgroundColor': 'transparent', 'border': '1px solid white' }}>FIND A DOCTOR</Button>
+                            <button className="btn-block CardButton">FIND A DOCTOR</button>
                         </CardBody>
                     </Card>
                 </Col >
