@@ -219,7 +219,7 @@ export class HomeView extends Component {
                         bullets={false}
                         play={true}
                         cancelOnInteraction={false}
-                        interval={3000}>
+                        interval={5000}>
                         {this.renderSlider()}
                     </AutoplaySlider>
                 </div>
