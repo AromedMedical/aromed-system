@@ -10,8 +10,7 @@ export class PatientsView extends Component {
     Profiles = [
         {name:'Patient_1'},
         {name:'Patient_2'},
-        {name:'Patient_3'},
-        {name:'Patient_4'}
+        {name:'Patient_3'}
     ]
 
     renderProfiles = () => {
