@@ -7,6 +7,7 @@ import SideBar from '../../components/Sidebar/Sidebar';
 
 export class PatientsView extends Component {
 
+    
     Profiles = [
         {name:'Patient_1'},
         {name:'Patient_2'},
