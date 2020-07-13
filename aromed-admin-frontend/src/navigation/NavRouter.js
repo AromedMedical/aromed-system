@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import HomeView from '../containers/HomeView/HomeView'
 
+
 class NavRouter extends Component {
 
     render() {
