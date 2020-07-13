@@ -24,10 +24,6 @@ export class LoginView extends Component {
                     </FormGroup>
 
                     <FormGroup className="text-center">
-                        <Label><a href="/reset">Forgotten Password?</a></Label>
-                    </FormGroup>
-
-                    <FormGroup className="text-center">
                         <Label>Don't have an account? <a href="/signup">Signup here</a></Label>
                     </FormGroup>
                 </Form>
