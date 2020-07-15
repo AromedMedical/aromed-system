@@ -4,7 +4,7 @@ export class DoctorView extends Component {
     render() {
         return (
             <div>
-
+                Test
             </div>
         )
     }
