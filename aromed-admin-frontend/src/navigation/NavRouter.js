@@ -10,6 +10,7 @@ import PatientView from '../containers/PatientView/PatientView'
 import ProfilesView from '../containers/ProfilesView/ProfilesView'
 import CreateProfile from '../containers/CreateProfile/CreateProfile'
 
+
 class NavRouter extends Component {
     render() {
         return (
@@ -40,6 +41,8 @@ class NavRouter extends Component {
                         <Route exact path="/profiles">
                             <ProfilesView />
                         </Route>
+
+
                     </Switch>
                 </BrowserRouter >
             </div>
