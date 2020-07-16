@@ -28,40 +28,40 @@ class NavRouter extends Component {
                         <Route exact path="/">
                             <HomeView />
                         </Route>
-                        <Route path="/login">
+                        <Route exact path="/login">
                             <LoginView />
                         </Route>
-                        <Route path="/signup">
+                        <Route exact path="/signup">
                             <SignupView />
                         </Route>
-                        <Route path="/reset">
+                        <Route exact path="/reset">
                             <ResetView />
                         </Route>
-                        <Route path="/settings">
+                        <Route exact path="/settings">
                             <AccountSettings />
                         </Route>
-                        <Route path="/doctors">
+                        <Route exact path="/doctors">
                             <SearchDoctor />
                         </Route>
-                        <Route path="/appointment">
+                        <Route exact path="/appointment">
                             <CreateAppointment />
                         </Route>
-                        <Route path="/patient/dashboard">
+                        <Route exact path="/patient/dashboard">
                             <PatientsDashboard />
                         </Route>
-                        <Route path="/patient/new">
+                        <Route exact path="/patient/new">
                             <CreatePatient />
                         </Route>
-                        <Route path="/patient/edit">
+                        <Route exact path="/patient/edit">
                             <ProfileView />
                         </Route>
-                        <Route path="/patient/appointments">
+                        <Route exact path="/patient/appointments">
                             <PatientsAppointments />
                         </Route>
-                        <Route path="/patient/history">
+                        <Route exact path="/patient/history">
                             <PatientsHistory />
                         </Route>
-                        <Route path="/doctor/dashboard">
+                        <Route exact path="/doctor/dashboard">
                             <DoctorsDashboard />
                         </Route>
                     </Switch>
