@@ -43,7 +43,7 @@ class NavBar extends React.Component {
             link: '/',
             active: false,
             display: 'Settings'
-        }
+        },
     ]
 
     toggle = () => {
