@@ -6,13 +6,13 @@ import SideBar from '../../components/Sidebar/Sidebar';
 export class ProfileView extends Component {
     render() {
         return (
-            <div className="col-lg-12" >
+            <div className="col-lg-12">
                 <SideBar />
-                <div className="container col-lg-10 py-5">
-                    <div className="bg-light px-5 py-3" style={{ 'height': '800px' }}>
-                        <Row>
+                    <div className="container col-lg- py-5"> 
+                        <div className="bg-light px-5 py-2">
+                        <Row><section>
                             <Col md="4">
-                                <h4>Appointments</h4>
+                                <h3>Appointments</h3>
                                 <hr />
                                 <Row>
                                     <Col md="6">
@@ -32,20 +32,21 @@ export class ProfileView extends Component {
                                 </div>
                                 <Row>
                                     <Col md="6">
-                                    <FormGroup className="mt-3">
+                                    <FormGroup>
                                         <Button className="btn-block">Create</Button>
                                     </FormGroup>
                                     </Col>
                                     <Col md="6">
-                                    <FormGroup className="mt-3">
+                                    <FormGroup>
                                         <Button className="btn-block">Delete</Button>
                                     </FormGroup>
                                     </Col>
                                 </Row>
                             </Col>
+
                             <Col md="8" className="pl-5">
-                                <Row style={{ 'height': '400px' }} >
-                                    <Form className="bg-light px-5 py-3">
+                                <Row>
+                                    <Form>
                                         <FormGroup>
                                             <Label for="owner">Owner</Label>
                                             <Input type="text" name="owneremail" id="owneremail" placeholder="Enter Email" />
@@ -116,19 +117,19 @@ export class ProfileView extends Component {
 
                                         <Row>
                                             <Col md="6">
-                                            <FormGroup className="mt-3">
+                                            <FormGroup>
                                                 <Button className="btn-block">Save</Button>
                                             </FormGroup>
                                             </Col>
                                             <Col md="6">
-                                            <FormGroup className="mt-3">
+                                            <FormGroup>
                                                 <Button className="btn-block">Delete</Button>
                                             </FormGroup>
                                             </Col>
                                         </Row>
                                     </Form>
                                 </Row>
-                            </Col>
+                            </Col></section>
                         </Row>
                     </div>
                 </div>

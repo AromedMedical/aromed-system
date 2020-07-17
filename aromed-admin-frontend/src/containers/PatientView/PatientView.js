@@ -11,7 +11,8 @@ export class PatientsView extends Component {
     Profiles = [
         {name:'Patient_1'},
         {name:'Patient_2'},
-        {name:'Patient_3'}
+        {name:'Patient_3'},
+        {name:'Patient_4'}
     ]
 
     renderProfiles = () => {
@@ -40,9 +41,10 @@ export class PatientsView extends Component {
         return (  
             <div className="col-lg-12">
             <SideBar />
-                <div className="container col-lg- py-5">
+                <div className="container col-lg- py-5"> 
+                <div className="px-5 py-2">
                     <Row>
-                        <Col md="4">
+                        <Col md="5" >
                             <h3>Accounts</h3>
                                 <Form>
                                     <Row>
@@ -75,24 +77,32 @@ export class PatientsView extends Component {
                             <Form style={{ padding: 10}}>
                                 <Row>
                                     <Col md="6">
-                                        <Button color="secondary" size="md" block>Create Account</Button>
+                                        <FormGroup>
+                                            <Button color="secondary" size="md" block>Create Account</Button>
+                                        </FormGroup>
                                     </Col>
                                     <Col md="6">
-                                        <Button color="secondary" size="md" block>Delete Account</Button>
+                                     <FormGroup>
+                                            <Button color="secondary" size="md" block>Delete Account</Button>
+                                        </FormGroup>
                                     </Col>
                                 </Row>    
                             </Form>
                         </Col>
 
-                        <Col md="6"> 
+                        <Col md="7"> 
                             <section class="bg-light col-12 col-md-3 col-lg -3 overflow-auto border mb-sm-2 m-lg-0" style={{ padding: 5, height: 700 }}>
                                 <Form style={{ padding: 10}}>
                                     <Row>
                                         <Col md="6">
-                                            <Button color="secondary" size="md" block>Create</Button>
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Create</Button>
+                                            </FormGroup>
                                         </Col>
                                         <Col md="6">
-                                            <Button color="secondary" size="md" block>Attach</Button>
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Attach</Button>
+                                            </FormGroup>
                                         </Col>
                                     </Row>    
                                 </Form>
@@ -112,6 +122,7 @@ export class PatientsView extends Component {
                             </section>
                         </Col>
                     </Row>
+                </div>
                 </div>
             </div>
         )
