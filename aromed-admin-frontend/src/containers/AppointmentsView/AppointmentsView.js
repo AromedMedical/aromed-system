@@ -9,7 +9,7 @@ export class AdminView extends Component {
             <div className="col-lg-12">
                 <SideBar />
                 <div className="container py-5">
-                    <h3>Administrators</h3>
+                    <h3>Appointments</h3>
                     <hr />
                     <div className="py-2">
                         <Row>
@@ -18,7 +18,7 @@ export class AdminView extends Component {
                                     <Row>
                                         <Col md="8">
                                             <FormGroup>
-                                                <Input type="email" name="email" id="email" placeholder="Search by Email Address" />
+                                                <Input type="email" name="email" id="email" placeholder="Search by App ID" />
                                             </FormGroup>
                                         </Col>
                                         <Col md="4">
@@ -34,14 +34,20 @@ export class AdminView extends Component {
                                     </ListGroup>
                                 </section>
 
-                                <Form className="m-3">
+                                <Form className="mt-3">
                                     <Row>
-                                        <Button color="secondary" size="md" block>Delete Account</Button>
+                                        <Col md="6">
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Create</Button>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md="6">
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Delete</Button>
+                                            </FormGroup>
+                                        </Col>
                                     </Row>
                                 </Form>
-                            </Col>
-
-                            <Col md="8">
                                 <Form className="bg-light px-5 py-3">
                                     <FormGroup>
                                         <Label for="owner">Admin ID</Label>

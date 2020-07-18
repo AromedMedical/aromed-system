@@ -16,7 +16,18 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
     git clone git@github.com:AromedMedical/aromed-web.git
     ```
 
-2. Install packages:
+2. Select one Project:
+
+    **Select Admin Project**
+    ```
+    cd aromed-admin-frontend
+    ```
+    
+    **Or Select Client Project**
+    ```
+    cd aromed-client-frontend
+    ```
+3. Install packages:
 
     **Using npm**
     ```
@@ -27,8 +38,7 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
     ```
     yarn
     ```
-
-3. Run the server:
+4. Run the server:
 
     **Using npm**
     ```
