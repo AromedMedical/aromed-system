@@ -55,9 +55,9 @@ export class AppointmentView extends Component {
                     </Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="roomNo">Room Number</Label>
-                    <Input type="select" name="roomNo" id="roomNo" placeholder="Select Time" >
-                        <option className="d-none">Select Time</option>
+                    <Label for="RoomNo">Room Number</Label>
+                    <Input type="select" name="RoomNo" id="RoomNo" placeholder="Select Room No" >
+                        <option className="d-none">Select Room No</option>
                     </Input>
                 </FormGroup>
                 <FormGroup>
