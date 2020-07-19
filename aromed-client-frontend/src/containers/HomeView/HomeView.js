@@ -7,6 +7,8 @@ import {
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
+import Images from "../../assets/images";
+
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -15,19 +17,19 @@ export class HomeView extends Component {
     sliderItems = [
         {
             styles: {
-                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-1.jpg)',
+                backgroundImage: '',
                 backgroundSize: 'cover'
             }
         },
         {
             styles: {
-                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-2.jpg)',
+                backgroundImage: '',
                 backgroundSize: 'cover'
             }
         },
         {
             styles: {
-                backgroundImage: 'url(https://anhlaptrinhvien.net/templates/medical/assets/img/slider/slider-3.jpg)',
+                backgroundImage: '',
                 backgroundSize: 'cover'
             }
         }
