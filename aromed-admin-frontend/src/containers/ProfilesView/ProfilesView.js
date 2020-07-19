@@ -1,23 +1,26 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Form, FormGroup, Input, Button, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
+import { ListGroup, ListGroupItem, Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 
 import SideBar from '../../components/Sidebar/Sidebar';
+import ProfileView from '../ProfileView/ProfileView'
 
 export class ProfilesView extends Component {
 
     render() {
-        return (  
+        return (
             <div className="col-lg-12">
-            <SideBar />
-                <div className="container col-lg- py-5"><div className="px-5 py-2">
-                    <Row>
-                        <Col sm="12" md={{ size: 5, offset: 4 }}>
-                            <h3>Profiles</h3>
+                <SideBar />
+                <div className="container py-5">
+                    <h3>Profiles</h3>
+                    <hr />
+                    <div className="py-2">
+                        <Row>
+                            <Col md="4" >
                                 <Form>
                                     <Row>
                                         <Col md="8">
                                             <FormGroup>
-                                                <Input type="text" name="Patient_ID" id="Patient_ID" placeholder="Search by Patient ID" />
+                                                <Input type="text" name="ProID" id="ProID" placeholder="Search by Profile ID" />
                                             </FormGroup>
                                         </Col>
                                         <Col md="4">
@@ -28,36 +31,33 @@ export class ProfilesView extends Component {
                                     </Row>
                                 </Form>
 
-                            <section class="bg-light col-12 col-md-3 col-lg -3 overflow-auto border mb-sm-2 m-lg-0" style={{ padding: 5, height: 550 }}>     
-                            <div class="card">
-                                    <div class="card-body">
-                                        
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                            
-                                    </div>
-                                </div>
-                            </section>
+                                <section className="border" style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden', height: 550 }}>
+                                    <ListGroup></ListGroup>
+                                </section>
 
-                            <Form style={{ padding: 10}}>
-                                <Row>
-                                    <Col md="6">
-                                        <FormGroup>
-                                            <Button color="secondary" size="md" block>Create Account</Button>
-                                        </FormGroup>
-                                    </Col>
-                                    <Col md="6">
-                                     <FormGroup>
-                                            <Button color="secondary" size="md" block>Delete Account</Button>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>    
-                            </Form>
-                        </Col>
-                    </Row>
-                </div></div>
+                                <Form className="mt-3">
+                                    <Row>
+                                        <Col md="6">
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Create Profile</Button>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md="6">
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Delete Profile</Button>
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                </Form>
+                            </Col>
+                            <Col md="8">
+                                <div className="px-3 py-3 border" style={{ 'overflow-y': 'scroll', 'overflow-x': 'scroll' }}>
+                                    <ProfileView />
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </div>
             </div>
         )
     }

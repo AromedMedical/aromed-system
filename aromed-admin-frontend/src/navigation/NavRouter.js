@@ -9,7 +9,7 @@ import DoctorView from '../containers/DoctorView/DoctorView'
 import PatientView from '../containers/PatientView/PatientView'
 import ProfilesView from '../containers/ProfilesView/ProfilesView'
 import CreateProfile from '../containers/CreateProfile/CreateProfile'
-
+import ProfileView from '../containers/ProfileView/ProfileView'
 
 class NavRouter extends Component {
     render() {
@@ -19,6 +19,9 @@ class NavRouter extends Component {
                     <Switch>
                         <Route exact path="/">
                             <HomeView />
+                        </Route>
+                        <Route exact path="/px">
+                            <ProfileView />
                         </Route>
                         <Route exact path="/reset">
                             <ResetView />
