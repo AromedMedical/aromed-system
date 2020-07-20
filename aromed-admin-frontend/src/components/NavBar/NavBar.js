@@ -66,7 +66,7 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="nav-bar">
                 <Navbar className="p-3" color="dark" dark expand="md">
                     <NavbarBrand href="/" className="ml-3">AromedMedical</NavbarBrand>
                     <NavbarToggler onClick={() => this.toggle()} />

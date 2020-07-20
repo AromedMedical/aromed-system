@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import { ListGroup, ListGroupItem, Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 
 import SideBar from '../../components/Sidebar/Sidebar';
-import ProfileView from '../ProfileView/ProfileView'
+import DoctorView from '../DoctorView/DoctorView'
 
-export class ProfilesView extends Component {
-
+export class DoctorsView extends Component {
     render() {
         return (
             <div className="col-lg-12">
                 <SideBar />
                 <div className="container py-5">
-                    <h3>Profiles</h3>
+                    <h3>Doctors</h3>
                     <hr />
                     <div className="py-2">
                         <Row>
@@ -20,7 +19,7 @@ export class ProfilesView extends Component {
                                     <Row>
                                         <Col md="8">
                                             <FormGroup>
-                                                <Input type="text" name="ProID" id="ProID" placeholder="Search by Profile ID" />
+                                                <Input type="text" name="doctorname" id="doctorname" placeholder="Search by Doctor's Name" />
                                             </FormGroup>
                                         </Col>
                                         <Col md="4">
@@ -32,19 +31,20 @@ export class ProfilesView extends Component {
                                 </Form>
 
                                 <section className="border" style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden', height: 550 }}>
-                                    <ListGroup></ListGroup>
+                                    <ListGroup>
+                                    </ListGroup>
                                 </section>
 
                                 <Form className="mt-3">
                                     <Row>
                                         <Col md="6">
                                             <FormGroup>
-                                                <Button color="secondary" size="md" block>Create Profile</Button>
+                                                <Button color="secondary" size="md" block>Create</Button>
                                             </FormGroup>
                                         </Col>
                                         <Col md="6">
                                             <FormGroup>
-                                                <Button color="secondary" size="md" block>Delete Profile</Button>
+                                                <Button color="secondary" size="md" block>Delete</Button>
                                             </FormGroup>
                                         </Col>
                                     </Row>
@@ -52,7 +52,7 @@ export class ProfilesView extends Component {
                             </Col>
                             <Col md="8">
                                 <div className="px-3 py-3 border" style={{ 'overflow-y': 'scroll', 'overflow-x': 'scroll' }}>
-                                    <ProfileView />
+                                    <DoctorView />
                                 </div>
                             </Col>
                         </Row>
@@ -63,4 +63,4 @@ export class ProfilesView extends Component {
     }
 }
 
-export default ProfilesView
+export default DoctorsView

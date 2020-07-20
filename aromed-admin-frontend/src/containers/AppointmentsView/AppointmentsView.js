@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ListGroup, ListGroupItem, Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 
 import SideBar from '../../components/Sidebar/Sidebar';
+import AppointmentView from '../AppointmentView/AppointmentView'
 
 export class AdminView extends Component {
     render() {
@@ -48,71 +49,11 @@ export class AdminView extends Component {
                                         </Col>
                                     </Row>
                                 </Form>
-                                <Form className="bg-light px-5 py-3">
-                                    <FormGroup>
-                                        <Label for="owner">Admin ID</Label>
-                                        <Input type="text" name="owneremail" id="owneremail" />
-                                    </FormGroup>
-                                    <Row>
-                                        <Col md="6">
-                                            <FormGroup>
-                                                <Label for="firstname">First Name</Label>
-                                                <Input type="text" name="firstname" id="firstname" placeholder="Enter First Name" />
-                                            </FormGroup>
-                                        </Col>
-                                        <Col md="6">
-                                            <FormGroup>
-                                                <Label for="lastname">Last Name</Label>
-                                                <Input type="text" name="lastname" id="lastname" placeholder="Enter Last Name" />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-
-                                    <FormGroup>
-                                        <Label for="email">Email</Label>
-                                        <Input type="email" name="email" id="email" placeholder="Enter Email" />
-                                    </FormGroup>
-
-                                    <Row>
-                                        <Col md="6">
-                                        </Col>
-                                        <Col md="6">
-                                            <FormGroup className="mt-3">
-                                                <Button className="btn-block">Save</Button>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                    <hr />
-                                    <Row>
-                                        <Col md="6">
-                                            <FormGroup>
-                                                <Label for="firstname">First Name</Label>
-                                                <Input type="text" name="firstname" id="firstname" placeholder="Enter First Name" />
-                                            </FormGroup>
-                                        </Col>
-                                        <Col md="6">
-                                            <FormGroup>
-                                                <Label for="lastname">Last Name</Label>
-                                                <Input type="text" name="lastname" id="lastname" placeholder="Enter Last Name" />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-
-                                    <FormGroup>
-                                        <Label for="email">Email</Label>
-                                        <Input type="email" name="email" id="email" placeholder="Enter Email" />
-                                    </FormGroup>
-
-                                    <Row>
-                                        <Col md="6">
-                                        </Col>
-                                        <Col md="6">
-                                            <FormGroup className="mt-3">
-                                                <Button className="btn-block">Create</Button>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                </Form>
+                            </Col>
+                            <Col md="8">
+                                <div className="px-3 py-3 border" style={{ 'overflow-y': 'scroll', 'overflow-x': 'scroll' }}>
+                                    <AppointmentView />
+                                </div>
                             </Col>
                         </Row>
                     </div>
