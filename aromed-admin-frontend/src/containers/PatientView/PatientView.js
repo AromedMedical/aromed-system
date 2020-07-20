@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Form, FormGroup, Input, Button, Card, CardImg, CardBody, CardTitle } from 'reactstrap';
+import { Container, Row, Col, Form, FormGroup, Input, Button, Card, CardImg, CardBody, CardTitle, ListGroup, ListGroupItem } from 'reactstrap';
 import _ from 'lodash';
 
 import SideBar from '../../components/Sidebar/Sidebar';
@@ -7,19 +7,15 @@ import SideBar from '../../components/Sidebar/Sidebar';
 
 export class PatientsView extends Component {
 
-    
+
     Profiles = [
-        {name:'Patient_1'},
-        {name:'Patient_2'},
-        {name:'Patient_3'},
-        {name:'Patient_4'}
     ]
 
     renderProfiles = () => {
         return (
             _.map(this.Profiles, (profile) => {
                 return (
-                    <Col md="6" className="p-2">
+                    <Col md="4" className="p-2">
                         <Card className="h-100 shadow" style={{ 'background': '#FFF', 'color': '#000' }}>
                             <CardImg src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/avatar-512.png" style={{ objectFit: 'cover' }} />
                             <CardBody>
@@ -29,28 +25,27 @@ export class PatientsView extends Component {
                                 <Button className="btn-block">Deatach</Button>
                             </CardBody>
                         </Card>
-                    </Col>                   
+                    </Col>
                 )
             })
         )
     }
 
-
-
     render() {
-        return (  
+        return (
             <div className="col-lg-12">
-            <SideBar />
-                <div className="container col-lg- py-5"> 
-                <div className="px-5 py-2">
-                    <Row>
-                        <Col md="5" >
-                            <h3>Accounts</h3>
+                <SideBar />
+                <div className="container py-5">
+                    <h3>Accounts</h3>
+                    <hr />
+                    <div className="py-2">
+                        <Row>
+                            <Col md="4" >
                                 <Form>
                                     <Row>
                                         <Col md="8">
                                             <FormGroup>
-                                                <Input type="text" name="email" id="email" placeholder="Search by Email" />
+                                                <Input type="email" name="email" id="email" placeholder="Search by Email Address" />
                                             </FormGroup>
                                         </Col>
                                         <Col md="4">
@@ -61,68 +56,60 @@ export class PatientsView extends Component {
                                     </Row>
                                 </Form>
 
-                            <section class="bg-light col-12 col-md-3 col-lg -3 overflow-auto border mb-sm-2 m-lg-0" style={{ padding: 5, height: 550 }}>
-                                <div class="card">
-                                    <div class="card-body">
-                                        
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                            
-                                    </div>
-                                </div>
-                            </section>
+                                <section className="border h-75" style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }}>
+                                    <ListGroup>
+                                        <ListGroupItem tag="a" href="#" action>Dapibus ac facilisis in</ListGroupItem>
+                                        <ListGroupItem tag="a" href="#" action>Morbi leo risus</ListGroupItem>
+                                        <ListGroupItem tag="a" href="#" action>Porta ac consectetur ac</ListGroupItem>
+                                    </ListGroup>
+                                </section>
 
-                            <Form style={{ padding: 10}}>
-                                <Row>
-                                    <Col md="6">
-                                        <FormGroup>
-                                            <Button color="secondary" size="md" block>Create Account</Button>
-                                        </FormGroup>
-                                    </Col>
-                                    <Col md="6">
-                                     <FormGroup>
-                                            <Button color="secondary" size="md" block>Delete Account</Button>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>    
-                            </Form>
-                        </Col>
-
-                        <Col md="7"> 
-                            <section class="bg-light col-12 col-md-3 col-lg -3 overflow-auto border mb-sm-2 m-lg-0" style={{ padding: 5, height: 700 }}>
-                                <Form style={{ padding: 10}}>
+                                <Form className="mt-3">
                                     <Row>
                                         <Col md="6">
                                             <FormGroup>
-                                                <Button color="secondary" size="md" block>Create</Button>
+                                                <Button color="secondary" size="md" block>Create Account</Button>
                                             </FormGroup>
                                         </Col>
                                         <Col md="6">
                                             <FormGroup>
-                                                <Button color="secondary" size="md" block>Attach</Button>
+                                                <Button color="secondary" size="md" block>Delete Account</Button>
                                             </FormGroup>
                                         </Col>
-                                    </Row>    
+                                    </Row>
                                 </Form>
+                            </Col>
 
+                            <Col md="8">
+                                <section class="bg-light overflow-auto border h-75">
+                                    <div className="p-6">
+                                        <Container>
+                                            <div>
+                                                <Row>
+                                                    {this.renderProfiles()}
+                                                </Row>
+                                            </div>
+                                        </Container>
+                                    </div>
+                                </section>
 
-                                <div className="p-6">
-                                    <Container>
-                                        <div>
-                                            <Row>
-                                                {this.renderProfiles()}
-                                            </Row>
-                                        </div>
-                                    </Container>
-                                </div>
-            
-
-                            </section>
-                        </Col>
-                    </Row>
-                </div>
+                                <Form className="mt-3">
+                                    <Row>
+                                        <Col md="6">
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Create Profile</Button>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md="6">
+                                            <FormGroup>
+                                                <Button color="secondary" size="md" block>Attach Profile</Button>
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                </Form>
+                            </Col>
+                        </Row>
+                    </div>
                 </div>
             </div>
         )
