@@ -10,19 +10,22 @@ export class PatientsAppointments extends Component {
                 <SideBar />
                 <div className="container col-lg-10 py-5">
                     <div className="bg-light px-5 py-3" style={{ 'height': '800px' }}>
-                        <h3 className="text-center">Appointment History</h3>
+                        <h3 className="text-center">Upcoming Appointments</h3>
                         <hr className="mb-5" />
                         <Row>
-                            <Col md="4">
-                                <h4 className="text-center mb-3">Date and Time</h4>
-                                <div style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }}>
+                            <Col md="4" className="text-center">
+                                <h4 className="mb-3">Date and Time</h4>
+                                <div style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }} className="mb-5">
                                     <ListGroup>
+                                        <ListGroupItem tag="a" href="#" action>Dapibus ac facilisis in</ListGroupItem>
+                                        <ListGroupItem tag="a" href="#" action>Morbi leo risus</ListGroupItem>
+                                        <ListGroupItem tag="a" href="#" action>Porta ac consectetur ac</ListGroupItem>
                                     </ListGroup>
                                 </div>
                             </Col>
-                            <Col md="8" className="pl-5">
-                                <Row>
-                                    <h4 className="text-center mb-3">Appointment Details</h4>
+                            <Col md="8" className="px-5">
+                                <Row style={{ 'justify-content': 'center' }}>
+                                    <h4 className="mb-3">Appointment Details</h4>
 
                                 </Row>
                             </Col>
