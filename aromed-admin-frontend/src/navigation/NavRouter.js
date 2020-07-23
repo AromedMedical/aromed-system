@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import HomeView from '../containers/HomeView/HomeView'
 import ResetView from '../containers/ResetView/ResetView'
 import AdminView from '../containers/AdminView/AdminView'
-import AppointmentView from '../containers/AppointmentView/AppointmentView'
-import DoctorView from '../containers/DoctorView/DoctorView'
+import AppointmentsView from '../containers/AppointmentsView/AppointmentsView'
+import DoctorsView from '../containers/DoctorsView/DoctorsView'
 import PatientView from '../containers/PatientView/PatientView'
 import ProfilesView from '../containers/ProfilesView/ProfilesView'
 import CreateProfile from '../containers/CreateProfile/CreateProfile'
@@ -30,10 +30,10 @@ class NavRouter extends Component {
                             <AdminView />
                         </Route>
                         <Route exact path="/appointments">
-                            <AppointmentView />
+                            <AppointmentsView />
                         </Route>
                         <Route exact path="/doctors">
-                            <DoctorView />
+                            <DoctorsView />
                         </Route>
                         <Route exact path="/patients">
                             <PatientView />
