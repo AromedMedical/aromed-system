@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Col, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
-export class CreatePatient extends Component {
+export class CreateProfile extends Component {
     render() {
         return (
             <div className="container col-lg-5 my-3 min-vh-100 d-flex flex-column justify-content-center">
@@ -57,4 +57,4 @@ export class CreatePatient extends Component {
     }
 }
 
-export default CreatePatient;
+export default CreateProfile;
