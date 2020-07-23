@@ -17,19 +17,19 @@ export class HomeView extends Component {
     sliderItems = [
         {
             styles: {
-                backgroundImage: '',
+                backgroundImage: `url(${Images.Carousel1})`,
                 backgroundSize: 'cover'
             }
         },
         {
             styles: {
-                backgroundImage: '',
+                backgroundImage: `url(${Images.Carousel2})`,
                 backgroundSize: 'cover'
             }
         },
         {
             styles: {
-                backgroundImage: '',
+                backgroundImage: `url(${Images.Carousel3})`,
                 backgroundSize: 'cover'
             }
         }
