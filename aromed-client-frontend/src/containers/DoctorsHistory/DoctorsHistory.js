@@ -3,7 +3,7 @@ import { Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
 
 import SideBar from '../../components/Sidebar/Sidebar';
 
-export class PatientsHistory extends Component {
+export class DoctorsHistory extends Component {
     render() {
         return (
             <div className="col-lg-12" >
@@ -13,23 +13,20 @@ export class PatientsHistory extends Component {
                         <h3 className="text-center">Appointment History</h3>
                         <hr className="mb-5" />
                         <Row>
-                            <Col md="4" className="text-center">
-                                <h4 className="mb-3">Date and Time</h4>
-                                <div style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }} className="mb-5">
+                            <Col md="4">
+                                <h4 className="text-center mb-3">Date and Time</h4>
+                                <div style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }}>
                                     <ListGroup>
-                                        <ListGroupItem tag="a" href="#" action>Dapibus ac facilisis in</ListGroupItem>
-                                        <ListGroupItem tag="a" href="#" action>Morbi leo risus</ListGroupItem>
-                                        <ListGroupItem tag="a" href="#" action>Porta ac consectetur ac</ListGroupItem>
                                     </ListGroup>
                                 </div>
                             </Col>
-                            <Col md="8" className="px-5">
-                                <Row style={{ 'justify-content': 'center' }}>
-                                    <h4 className="mb-3">Appointment Details</h4>
+                            <Col md="8" className="pl-5">
+                                <Row style={{ 'height': '400px' }} >
+                                    <h4 className="text-center mb-3">Appointment Details</h4>
                                 </Row>
                                 <hr />
-                                <Row>
-                                    <h5 className="mb-3">Attachments</h5>
+                                <Row >
+                                    <h5 className="text-center mb-3">Attachments</h5>
                                     <ListGroup horizontal>
                                     </ListGroup>
                                 </Row>
@@ -42,4 +39,4 @@ export class PatientsHistory extends Component {
     }
 }
 
-export default PatientsHistory
+export default DoctorsHistory
