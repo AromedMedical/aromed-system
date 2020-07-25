@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, FormGroup, Label, Input, Button, Row, Col } from 'reactstrap'
 
-export class AppointmentView extends Component {
+export class Appointment extends Component {
     render() {
         return (
             <div className="container" style={{ height: 600 }}>
@@ -85,4 +85,4 @@ export class AppointmentView extends Component {
     }
 }
 
-export default AppointmentView
+export default Appointment
