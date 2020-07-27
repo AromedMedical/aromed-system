@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
 import _ from 'lodash';
 import {
-    Container, Card, CardTitle, CardBody, Button, CardImg, Row, Col, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem,FormGroup,Input,Form
+    Container, Card, CardTitle, CardBody, Button, CardImg, Row, Col, Label,FormGroup,Input,Form
 } from 'reactstrap';
 
 export class SearchDoctor extends Component {
-    Doctors = []
+    Doctors = [
+    {   name:'name_1',
+        Specialization: 'Specialization_1',
+        Qualitifications: 'Qualitifications_1'
+    }
+    ]
 
-    renderProfiles = () => {
+   renderDoctors = () => {
         return (
-            _.map(this.Doctors, (dprofile) => {
+            _.map(this.Doctors, (Doctor) => {
                 return (
-                    <Col lg="3" sm="6" className="mb-4">
+                    <Col md="3" className="p-3">
                         <Card className="h-100 shadow" style={{ 'background': '#FFF', 'color': '#000' }}>
                             <CardImg src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/avatar-512.png" style={{ objectFit: 'cover' }} />
                             <CardBody>
-                                <CardTitle className="text-center" >{dprofile}</CardTitle>
+                                <CardTitle className="text-center" >Dr.{Doctor.name}</CardTitle>
+                                <CardTitle className="text-center" >{Doctor.Specialization}</CardTitle>
+                                <CardTitle className="text-center" >{Doctor.Qualitifications}</CardTitle>
                                 <hr />
-                                <Button className="btn-block">Visit Profile</Button>
-                                
+                                <Button className="btn-block">Make an Appointment</Button>
                             </CardBody>
                         </Card>
                     </Col>
@@ -29,71 +35,55 @@ export class SearchDoctor extends Component {
 
     render() {
         return (
-            <div className="p-5">
-                <Container>
-                    <div className="d-flex justify-content-between mb-5">
+            <div className="container py-5">
+                <Row>
+                    <Col xs="6">
                         <h3>Doctors</h3>
+                    </Col>
+                    <Col xs="auto">
                         <Form inline>
-                            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                <UncontrolledDropdown>
-                                    <DropdownToggle caret>
-                                        Select Specialization
-                                    </DropdownToggle>
-                                    <DropdownMenu className='spec-menu ' style={{ maxHeight:300 , overflow:'auto'}}>
-                                        <DropdownItem>Podiatrist</DropdownItem>
-                                        <DropdownItem>General Practitioner</DropdownItem>
-                                        <DropdownItem>Pediatrician</DropdownItem>
-                                        <DropdownItem>Endocrinologist</DropdownItem>
-                                        <DropdownItem>Neurologist</DropdownItem>
-                                        <DropdownItem>Rheumatologist</DropdownItem>
-                                        <DropdownItem>Allergist/Immunologist</DropdownItem>
-                                        <DropdownItem>Psychiatrist</DropdownItem>
-                                        <DropdownItem>Nephrologist</DropdownItem>
-                                        <DropdownItem>OB/GYN</DropdownItem>
-                                        <DropdownItem>Pulmonologist</DropdownItem>
-                                        <DropdownItem>Surgeon</DropdownItem>
-                                        <DropdownItem>Emergency Physician</DropdownItem>
-                                        <DropdownItem>Ophthalmologist</DropdownItem>
-                                        <DropdownItem>Oncologist</DropdownItem>
-                                        <DropdownItem>Urologist</DropdownItem>
-                                        <DropdownItem>Otolaryngologist</DropdownItem>
-                                        <DropdownItem>Anesthesiologist</DropdownItem>
-                                        <DropdownItem>Dermatologist</DropdownItem>
-                                        <DropdownItem>Radiologist</DropdownItem>
-                                        <DropdownItem>Gastroenterologist</DropdownItem>
-                                        <DropdownItem>Cardiologist</DropdownItem>
-                                        <DropdownItem>Orthopedist</DropdownItem>
-                                    </DropdownMenu>
-                                </UncontrolledDropdown>                                        
+                            <FormGroup>
+                                <Input type="select" name="specialization" id="specialization" >
+                                    <option className="d-none">Select Specialization</option>
+                                    <option>Podiatrist</option>
+                                    <option>General Practitioner</option>
+                                    <option>Pediatrician</option>
+                                    <option>Endocrinologist</option>
+                                    <option>Neurologist</option>
+                                    <option>Rheumatologist</option>
+                                    <option>Allergist/Immunologist</option>
+                                    <option>Psychiatrist</option>
+                                    <option>Nephrologist</option>
+                                    <option>OB/GYN</option>
+                                    <option>Pulmonologist</option>
+                                    <option>Surgeon</option>
+                                    <option>Emergency Physician</option>
+                                    <option>Ophthalmologist</option>
+                                    <option>Oncologist</option>
+                                    <option>Urologist</option>
+                                    <option>Otolaryngologist</option>
+                                    <option>Anesthesiologist</option>
+                                    <option>Dermatologist</option>
+                                    <option>Radiologist</option>
+                                    <option>Gastroenterologist</option>
+                                    <option>Cardiologist</option>
+                                    <option>Orthopedist</option>
+                                </Input>
                             </FormGroup>
-                            <div className="justify-content-between">
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <Input type="name" name="docName" id="docName" placeholder="Search Doctor" /> 
-                                    <Button>Search</Button>
-                                </FormGroup>
-                            </div>
+                            <FormGroup>
+                                <Input type="name" name="docName" id="docName" placeholder="Search Doctor"/> 
+                            </FormGroup>
+                            <FormGroup>
+                                <Button color="secondary">Search</Button>{' '}
+                            </FormGroup>
                         </Form>
-                            
-    
-
-
-
-
-
-
-
-
-                            
-                        
-
-                        
-                    </div>
-                    <div>
-                        <Row>
-                            {this.renderProfiles()}
-                        </Row>
-                    </div>
-                </Container>
+                    </Col>
+                </Row>
+                <div className="py-4">
+                    <Row>
+                        {this.renderDoctors()}
+                    </Row>
+                </div>
             </div>
         )
     }
