@@ -1,6 +1,13 @@
-# Aromed-web
+<h1 align="center">
+	<img
+		width="600"
+		alt="The Lounge"
+		src="/images/logo.png">
+</h1>
 
-A web-based Appointment Booking System for Channeling Centers.
+<h3 align="center">
+	A web-based Appointment Booking System for Channeling Centers.
+</h3>
 
 ## Getting Started
 
