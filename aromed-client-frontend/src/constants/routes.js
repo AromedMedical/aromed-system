@@ -1,0 +1,12 @@
+export const HOME = '/';
+export const SIGN_UP = '/signup';
+export const LOGIN = '/login';
+export const RESET = '/reset';
+export const SEARCH_DOCTORS = '/doctors';
+export const ACCOUNT_SETTINGS = '/settings';
+export const CREATE_APPOINTMENT = '/appointment';
+export const PATIENT_DASHBOARD = '/profiles';
+export const PROFILE_CREATE = '/profiles/new';
+export const PROFILE_EDIT = '/dashboard/profile';
+export const APPOINTMENT_HISTORY = '/dashboard/history';
+export const APPOINTMENT_UPCOMING = '/dashboard/upcoming';

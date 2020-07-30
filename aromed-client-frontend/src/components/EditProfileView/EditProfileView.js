@@ -3,7 +3,7 @@ import { Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, F
 
 import SideBar from '../../components/Sidebar/Sidebar';
 
-export class ProfileView extends Component {
+export class EditProfileView extends Component {
     render() {
         return (
             <div className="col-lg-12">
@@ -86,4 +86,4 @@ export class ProfileView extends Component {
     }
 }
 
-export default ProfileView;
+export default EditProfileView;
