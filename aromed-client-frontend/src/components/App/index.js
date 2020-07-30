@@ -47,7 +47,7 @@ const App = () => (
                 <Route path={ROUTES.CREATE_APPOINTMENT}>
                     <CreateAppointment />
                 </Route>
-                <Route path={ROUTES.PATIENT_DASHBOARD}>
+                <Route exact path={ROUTES.PATIENT_DASHBOARD}>
                     <PatientsDashboard />
                 </Route>
                 <Route path={ROUTES.PROFILE_CREATE}>
