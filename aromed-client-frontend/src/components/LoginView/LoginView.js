@@ -32,8 +32,6 @@ class LoginViewBase extends Component {
         this.setState({ error: '' });
         const { email, password } = this.state;
 
-        console.log(email + " " + password);
-
         this.props.firebase
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
@@ -87,6 +85,6 @@ class LoginViewBase extends Component {
     }
 }
 
-const SignupView = compose(withRouter, withFirebase)(LoginViewBase);
+const LoginView = compose(withRouter, withFirebase)(LoginViewBase);
 
-export default SignupView
+export default LoginView
