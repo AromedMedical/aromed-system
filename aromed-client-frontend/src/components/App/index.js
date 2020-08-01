@@ -16,6 +16,7 @@ import CreateAppointment from '../CreateAppointment/CreateAppointment';
 import PatientsDashboard from '../PatientsDashboard/PatientsDashboard';
 import CreateProfile from '../CreateProfile/CreateProfile';
 import EditProfile from '../EditProfileView/EditProfileView';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 import { withAuthentication } from '../Session';
 import * as ROUTES from '../../constants/routes';
@@ -53,11 +54,14 @@ class App extends Component {
                         <Route exact path={ROUTES.PATIENT_DASHBOARD}>
                             <PatientsDashboard />
                         </Route>
-                        <Route exact path={ROUTES.PROFILE_CREATE}>
+                        <Route exact path={ROUTES.CREATE_PROFILE}>
                             <CreateProfile />
                         </Route>
                         <Route exact path={ROUTES.PROFILE_EDIT}>
                             <EditProfile />
+                        </Route>
+                        <Route path="">
+                            <ErrorPage />
                         </Route>
                     </Switch>
                 </Router>
