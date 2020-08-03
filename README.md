@@ -56,7 +56,16 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
     ```
     yarn start
     ```
+5. Run tests:
 
+    **Using npm**
+    ```
+    npm test
+    ```
+    **Using yarn**
+    ```
+    yarn run test
+    ```
 ## Built With
 
 * [React](https://github.com/facebook/react)
