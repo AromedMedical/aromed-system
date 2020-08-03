@@ -5,6 +5,12 @@ import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
 
+import { useAlert } from 'react-alert'
+
+const App = () => {
+  const alert = useAlert()
+}
+
 const INITIAL_STATE = {
     error: null,
     newpassword: '',
@@ -38,6 +44,7 @@ class AccountSettingsBase extends Component {
             this.props.firebase
                 .doPasswordUpdate(newpassword)
                 .then(() => {
+                    this.alert.show('Password Changed Successfully.')
                     this.setState({ ...INITIAL_STATE });
                 })
                 .catch(error => {
