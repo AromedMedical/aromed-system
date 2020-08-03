@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Route,
@@ -16,49 +16,58 @@ import CreateAppointment from '../CreateAppointment/CreateAppointment';
 import PatientsDashboard from '../PatientsDashboard/PatientsDashboard';
 import CreateProfile from '../CreateProfile/CreateProfile';
 import EditProfile from '../EditProfileView/EditProfileView';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
+import { withAuthentication } from '../Session';
 import * as ROUTES from '../../constants/routes';
 
-import './App.css'
+import './App.css';
 
-const App = () => (
-    <div>
-        <Navigation />
-        <Router>
-            <Switch>
-                <Route exact path={ROUTES.HOME}>
-                    <HomePage />
-                </Route>
-                <Route path={ROUTES.SIGN_UP}>
-                    <SignupPage />
-                </Route>
-                <Route path={ROUTES.LOGIN}>
-                    <LoginPage />
-                </Route>
-                <Route path={ROUTES.RESET}>
-                    <ResetPage />
-                </Route>
-                <Route path={ROUTES.SEARCH_DOCTORS}>
-                    <DoctorsPage />
-                </Route>
-                <Route path={ROUTES.ACCOUNT_SETTINGS}>
-                    <SettingsPage />
-                </Route>
-                <Route path={ROUTES.CREATE_APPOINTMENT}>
-                    <CreateAppointment />
-                </Route>
-                <Route path={ROUTES.PATIENT_DASHBOARD}>
-                    <PatientsDashboard />
-                </Route>
-                <Route path={ROUTES.PROFILE_CREATE}>
-                    <CreateProfile />
-                </Route>
-                <Route path={ROUTES.PROFILE_EDIT}>
-                    <EditProfile />
-                </Route>
-            </Switch>
-        </Router>
-    </div >
-);
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <Navigation />
+                <Router>
+                    <Switch>
+                        <Route exact path={ROUTES.HOME}>
+                            <HomePage />
+                        </Route>
+                        <Route exact path={ROUTES.SIGN_UP}>
+                            <SignupPage />
+                        </Route>
+                        <Route exact path={ROUTES.LOGIN}>
+                            <LoginPage />
+                        </Route>
+                        <Route exact path={ROUTES.RESET}>
+                            <ResetPage />
+                        </Route>
+                        <Route exact path={ROUTES.SEARCH_DOCTORS}>
+                            <DoctorsPage />
+                        </Route>
+                        <Route exact path={ROUTES.ACCOUNT_SETTINGS}>
+                            <SettingsPage />
+                        </Route>
+                        <Route exact path={ROUTES.CREATE_APPOINTMENT}>
+                            <CreateAppointment />
+                        </Route>
+                        <Route exact path={ROUTES.PATIENT_DASHBOARD}>
+                            <PatientsDashboard />
+                        </Route>
+                        <Route exact path={ROUTES.CREATE_PROFILE}>
+                            <CreateProfile />
+                        </Route>
+                        <Route exact path={ROUTES.PROFILE_EDIT}>
+                            <EditProfile />
+                        </Route>
+                        <Route path="">
+                            <ErrorPage />
+                        </Route>
+                    </Switch>
+                </Router>
+            </div >
+        );
+    }
+}
 
-export default App;
+export default withAuthentication(App);

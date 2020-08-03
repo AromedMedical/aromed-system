@@ -5,6 +5,7 @@ import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
 
 const INITIAL_STATE = {
     error: null,
@@ -32,6 +33,9 @@ class SignUpBase extends Component {
         event.preventDefault();
         this.setState({ error: '' });
         const { email, password, confirmpassword } = this.state;
+        const roles = {};
+
+        roles[ROLES.PATIENT] = ROLES.PATIENT;
 
         if (password !== confirmpassword) {
             this.setState({ error: 'Passwords does not match' });
@@ -40,6 +44,14 @@ class SignUpBase extends Component {
             this.props.firebase
                 .doCreateUserWithEmailAndPassword(email, password)
                 .then(authUser => {
+                    return this.props.firebase
+                        .user(authUser.user.uid)
+                        .set({
+                            email,
+                            roles,
+                        });
+                })
+                .then(() => {
                     this.setState({ ...INITIAL_STATE });
                     this.props.history.push(ROUTES.LOGIN);
                 })
