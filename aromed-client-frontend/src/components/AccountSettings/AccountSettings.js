@@ -7,10 +7,6 @@ import { withFirebase } from '../Firebase';
 
 import { useAlert } from 'react-alert'
 
-const App = () => {
-  const alert = useAlert()
-}
-
 const INITIAL_STATE = {
     error: null,
     newpassword: '',
@@ -18,6 +14,8 @@ const INITIAL_STATE = {
 };
 
 class AccountSettingsBase extends Component {
+    alert = useAlert()
+
     constructor(props) {
         super(props);
         this.state = { ...INITIAL_STATE };

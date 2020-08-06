@@ -5,13 +5,18 @@
 }
 
 .CardButton {
+    text-align: center;
     height: 40px;
+    line-height: 40px;
     border: 1px solid white;
     background-color:transparent;
+    text-decoration: none;
     color: white;
 }
 
 .CardButton:hover {
-    background-color: #0E1B30;
     border: 1px solid #0E1B30;
+    background-color: #0E1B30;
+    text-decoration: none;
+    color: white;
 }
