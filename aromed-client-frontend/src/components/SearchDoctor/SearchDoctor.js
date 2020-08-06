@@ -44,8 +44,12 @@ export class SearchDoctorBase extends Component {
         this.props.firebase.doctor().off();
     }
 
-    renderDoctors = (doctors) => {
-        //const { searchName, searchSpecialization } = this.state;
+    renderDoctors = () => {
+        const {
+            searchName,
+            searchSpecialization,
+            doctors,
+        } = this.state;
 
         return (
             _.map(doctors, (doctor) => {
@@ -71,7 +75,6 @@ export class SearchDoctorBase extends Component {
         const {
             searchName,
             searchSpecialization,
-            doctors
         } = this.state.doctors;
 
         return (
@@ -122,7 +125,7 @@ export class SearchDoctorBase extends Component {
                 </Row>
                 <div className="py-4">
                     <Row>
-                        {this.renderDoctors(doctors)}
+                        {this.renderDoctors()}
                     </Row>
                 </div>
             </div>

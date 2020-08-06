@@ -30,10 +30,21 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
     cd aromed-admin-frontend
     ```
     
-    **Or Select Client Project**
+    **Select Client Project**
     ```
     cd aromed-client-frontend
     ```
+3. Update Firebase Configurations
+
+    + Rename `.env.example` to `.env`
+    
+    + Add following configurations,
+    ```
+    REACT_APP_API_KEY=
+    REACT_APP_AUTH_DOMAIN=
+    REACT_APP_DATABASE_URL=
+    ```
+    
 3. Install packages:
 
     **Using npm**
@@ -70,8 +81,6 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
 
 * [React](https://github.com/facebook/react)
 * [Bootstrap](https://github.com/twbs/bootstrap)
-* [Reactstrap](https://github.com/reactstrap/reactstrap)
-* [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
 
 ## Authors
 
