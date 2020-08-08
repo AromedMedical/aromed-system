@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import _ from 'lodash';
 import {
-    Container, Row, Col, Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle, Button
+    Container, Row, Col, Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle
 } from 'reactstrap';
 
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
 import Images from "../../assets/images";
+import { Link } from 'react-router-dom';
 
+import * as ROUTES from '../../constants/routes';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -108,7 +110,7 @@ export class HomeView extends Component {
                             <CardTitle><p className="font-weight-bold">APPOINTMENTS</p></CardTitle>
                             <CardText>Make a reservation ahead of time to guarantee your spot. You can now make appointments through our website or give us a call.</CardText>
                             <CardText><p className="font-weight-bold">{this.details.phone}</p></CardText>
-                            <button className="btn-block CardButton" >MAKE AN APPOINTMENT</button>
+                            <Link className="btn-block CardButton" to={ROUTES.CREATE_APPOINTMENT}>MAKE AN APPOINTMENT</Link>
                         </CardBody>
                     </Card>
                 </Col >
@@ -117,7 +119,7 @@ export class HomeView extends Component {
                         <CardBody>
                             <CardTitle><p className="font-weight-bold">DOCTORS TIMETABLE</p></CardTitle>
                             <CardText>Our staff is always available at your service whenever you need us. In case of an emergency, our doctors are always at your service.</CardText>
-                            <button className="btn-block CardButton">FIND A DOCTOR</button>
+                            <Link className="btn-block CardButton" to={ROUTES.SEARCH_DOCTORS}>FIND A DOCTOR</Link>
                         </CardBody>
                     </Card>
                 </Col >
@@ -131,7 +133,7 @@ export class HomeView extends Component {
                         </CardBody>
                     </Card>
                 </Col >
-            </Row>
+            </Row >
         )
     }
 
@@ -194,17 +196,16 @@ export class HomeView extends Component {
             _.map(this.sliderItems, (item) => {
                 return (
                     <div style={item.styles} className="p-3">
-                        <div class="row">
+                        <div className="row">
                             <div style={{ 'font-size': '4vw' }} className="col-md-8 text-white mb-3">Welcome to Aromed Medical Channeled Center</div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-6 ml-3 mb-3">
-                                <Button class="btn-block" color="primary" outline>MAKE AN APPOINTMENT</Button>
+                        <div className="row">
+                            <div className="col-xs-6 ml-3 mb-3">
+                                <Link className="btn btn-outline-primary" to={ROUTES.CREATE_APPOINTMENT}>MAKE AN APPOINTMENT</Link>
                             </div>
-                            <div class="col-xs-6 ml-3 mr-3">
-                                <Button class="btn-block" color="primary" outline>FIND A DOCTOR</Button>
+                            <div className="col-xs-6 ml-3 mr-3">
+                                <Link className="btn btn-outline-primary" to={ROUTES.SEARCH_DOCTORS}>FIND A DOCTOR</Link>
                             </div>
-
                         </div>
                     </div >
                 )
@@ -276,9 +277,9 @@ export class HomeView extends Component {
                                     <div className="py-0">
                                         <h3 className="my-4 text-white">{this.details.name}</h3>
                                         <p className="footer-links font-weight-bold">
-                                            <a className="text-white mr-2" href="/">Home</a>
-                                            <a className="text-white mr-2" href="/">Appointment</a>
-                                            <a className="text-white mr-2" href="/">Doctors</a>
+                                            <Link className="text-white mr-2" to={ROUTES.HOME}>Home</Link>
+                                            <Link className="text-white mr-2" to={ROUTES.CREATE_APPOINTMENT}>Appointment</Link>
+                                            <Link className="text-white mr-2" to={ROUTES.SEARCH_DOCTORS}>Doctors</Link>
                                         </p>
                                         <p className="text-light py-4 mb-4">&copy;2020 All rights reserved</p>
                                     </div>
