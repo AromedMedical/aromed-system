@@ -1,13 +1,19 @@
 <h1 align="center">
 	<img
 		width="600"
-		alt="The Lounge"
+		alt="Aromed"
 		src="/images/logo.png">
 </h1>
 
 <h3 align="center">
 	A web-based Appointment Booking System for Channeling Centers.
 </h3>
+
+<p align="center">
+<a href="https://www.npmjs.com/package/react"><img src="https://img.shields.io/badge/Made%20with-React-blue"></a>
+<a href="https://github.com/AromedMedical/aromed-system/graphs/contributors/"><img src="https://img.shields.io/github/contributors/AromedMedical/aromed-system.svg"></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg"></a>
+</p>
 
 ## Getting Started
 
@@ -67,20 +73,23 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
     ```
     yarn start
     ```
-5. Run tests:
+    
+## Running the tests
+Unit testing is done using [Jest Framework](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme)
 
-    **Using npm**
-    ```
-    npm test
-    ```
-    **Using yarn**
-    ```
-    yarn run test
-    ```
+   **Using npm**
+   ```
+   npm test
+   ```
+   **Using yarn**
+   ```
+   yarn run test
+   ```
 ## Built With
 
-* [React](https://github.com/facebook/react)
 * [Bootstrap](https://github.com/twbs/bootstrap)
+* [React](https://github.com/facebook/react)
+* [FireBase](https://firebase.google.com)
 
 ## Authors
 
