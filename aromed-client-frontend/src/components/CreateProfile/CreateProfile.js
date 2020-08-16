@@ -9,6 +9,7 @@ import * as ROUTES from '../../constants/routes';
 
 const INITIAL_STATE = {
     error: null,
+    errors: {},
     firstname: '',
     lastname: '',
     dob: '',
@@ -17,7 +18,7 @@ const INITIAL_STATE = {
     phone: '',
 };
 
-export class CreateProfileBase extends Component {
+class CreateProfileBase extends Component {
     constructor(props) {
         super(props);
         this.state = { ...INITIAL_STATE };
@@ -32,12 +33,73 @@ export class CreateProfileBase extends Component {
         });
     }
 
+    isValidDate(dateString) {
+        var regEx = /^\d{4}-\d{2}-\d{2}$/;
+        if (!dateString.match(regEx)) return false;
+        var d = new Date(dateString);
+        var dNum = d.getTime();
+        if (!dNum && dNum !== 0) return false;
+        return d.toISOString().slice(0, 10) === dateString;
+    }
+
+    handleValidation(firstname, lastname, dob, gender, address, phone) {
+        let formIsValid = true;
+        let errors = {};
+
+        if (firstname == null) {
+            formIsValid = false;
+            errors["firstname"] = "First name cannot be empty";
+        }
+        else if (typeof firstname !== "undefined") {
+            if (!firstname.match(/^[a-zA-Z]+$/)) {
+                formIsValid = false;
+                errors["firstname"] = "First name can only contain letters";
+            }
+        }
+
+        if (lastname == null) {
+            formIsValid = false;
+            errors["lastname"] = "Last name cannot be empty";
+        }
+        else if (typeof lastname !== "undefined") {
+            if (!lastname.match(/^[a-zA-Z]+$/)) {
+                formIsValid = false;
+                errors["lastname"] = "Last name can only contain letters";
+            }
+        }
+
+        if (dob == null) {
+            formIsValid = false;
+            errors["dob"] = "Date of birth cannot be empty";
+        }
+        else if (!this.isValidDate(dob)) {
+            formIsValid = false;
+            errors["dob"] = "Invalid date of birth";
+        }
+
+        if (address == null) {
+            formIsValid = false;
+            errors["address"] = "Address cannot be empty";
+        }
+
+        if (phone == null) {
+            formIsValid = false;
+            errors["phone"] = "Phone number cannot be empty";
+        }
+        else if (!phone.match(/\d{10}/)) {
+            formIsValid = false;
+            errors["phone"] = "Invalid phone number";
+        }
+
+        return formIsValid;
+    }
+
     async handleSubmit(event, authUser) {
         event.preventDefault();
         this.setState({ error: '' });
         const { firstname, lastname, dob, gender, address, phone } = this.state;
-
-        if (firstname !== "" && lastname !== "" && dob !== "" && gender !== "" && address !== "" && phone !== "") {
+        window.alert(firstname + lastname + dob + gender + address + phone);
+        if (this.handleValidation(firstname, lastname, dob, gender, address, phone)) {
             this.props.firebase
                 .profile(authUser.uid)
                 .push({
@@ -131,4 +193,6 @@ export class CreateProfileBase extends Component {
 }
 const CreateProfile = compose(withRouter, withFirebase)(CreateProfileBase);
 
-export default CreateProfile;
+export { CreateProfileBase }
+
+export default CreateProfile
