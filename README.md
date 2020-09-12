@@ -85,6 +85,27 @@ Unit testing is done using [Jest Framework](https://jestjs.io) and [Enzyme](http
    ```
    yarn run test
    ```
+
+## Deployment
+This project is hosted on firebase. First, the app should be build before deploying.
+
+1. Build the App
+
+   **Using npm**
+   ```
+   npm run build
+   ```
+   **Using yarn**
+   ```
+   yarn run build
+   ```
+
+2. Deploy to firebase
+
+   ```
+   firebase deploy
+   ```
+
 ## Built With
 
 * [Bootstrap](https://github.com/twbs/bootstrap)
