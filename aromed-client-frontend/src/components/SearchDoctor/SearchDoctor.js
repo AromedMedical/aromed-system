@@ -8,9 +8,7 @@ import { withFirebase } from '../Firebase';
 import Images from "../../assets/images";
 
 const INITIAL_STATE = {
-    searchName: '',
-    searchSpecialization: '',
-    doctors: [],
+    doctors: []
 };
 
 export class SearchDoctorBase extends Component {
@@ -46,9 +44,7 @@ export class SearchDoctorBase extends Component {
 
     renderDoctors = () => {
         const {
-            searchName,
-            searchSpecialization,
-            doctors,
+            doctors
         } = this.state;
 
         return (

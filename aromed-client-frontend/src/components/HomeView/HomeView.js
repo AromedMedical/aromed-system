@@ -3,18 +3,27 @@ import _ from 'lodash';
 import {
     Container, Row, Col, Card, CardImg, CardTitle, CardBody, CardText, CardSubtitle
 } from 'reactstrap';
-
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
-import 'react-awesome-slider/dist/styles.css';
-import Images from "../../assets/images";
 import { Link } from 'react-router-dom';
+import { compose } from 'recompose';
 
+import { withFirebase } from '../Firebase';
+import Images from "../../assets/images";
 import * as ROUTES from '../../constants/routes';
+import 'react-awesome-slider/dist/styles.css';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
-export class HomeView extends Component {
+const INITIAL_STATE = {
+    doctors: []
+};
+
+export class HomeViewBase extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { ...INITIAL_STATE };
+    }
 
     sliderItems = [
         {
@@ -34,14 +43,6 @@ export class HomeView extends Component {
                 backgroundImage: `url(${Images.Carousel3})`,
                 backgroundSize: 'cover'
             }
-        }
-    ]
-
-    doctors = [
-        {
-            title: '',
-            speciality: '',
-            qualification: ''
         }
     ]
 
@@ -101,6 +102,24 @@ export class HomeView extends Component {
         }
     ]
 
+    async componentDidMount() {
+        this.props.firebase
+            .doctor()
+            .limitToFirst(4)
+            .on("value", snapshot => {
+                if (snapshot.exists()) {
+                    const doctorsList = Object.keys(snapshot.val()).map(key => ({
+                        ...snapshot.val()[key],
+                    }));
+                    this.setState({ doctors: doctorsList });
+                }
+            })
+    }
+
+    componentWillUnmount() {
+        this.props.firebase.doctor().off();
+    }
+
     renderInfoCards = () => {
         return (
             <Row>
@@ -155,17 +174,21 @@ export class HomeView extends Component {
     }
 
     renderDoctors = () => {
+        const {
+            doctors
+        } = this.state;
+
         return (
-            _.map(this.doctors, (doctor) => {
+            _.map(doctors, (doctor) => {
                 return (
                     <Col md="3" className="p-2">
                         <Card className="h-100 shadow" style={{ 'background': '#FFF', 'color': '#000' }}>
-                            <CardImg top width="100%" src="https://i.pinimg.com/originals/df/58/9d/df589d8a50f9cc970ac5ef857cbcdebb.jpg" alt="Card image cap" />
+                            <CardImg src={doctor.gender === 'Male' ? Images.MaleDoctor : Images.FemaleDoctor} style={{ objectFit: 'cover' }} />
                             <CardBody>
-                                <CardTitle><p className="font-weight-bold">{doctor.title}</p></CardTitle>
+                                <CardTitle><p className="font-weight-bold">{doctor.name}</p></CardTitle>
                                 <hr />
-                                <CardSubtitle>{doctor.speciality}</CardSubtitle>
-                                <CardText>{doctor.qualification}</CardText>
+                                <CardSubtitle>{doctor.specialization}</CardSubtitle>
+                                <CardText>{doctor.qualifications}</CardText>
                             </CardBody>
                         </Card>
                     </Col >
@@ -302,5 +325,7 @@ export class HomeView extends Component {
         )
     }
 }
+
+const HomeView = compose(withFirebase)(HomeViewBase);
 
 export default HomeView
