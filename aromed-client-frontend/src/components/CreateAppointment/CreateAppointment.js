@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Col, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import Calendar from 'react-calendar'
+import { compose } from 'recompose';
+
+import { withAuthorization } from '../Session';
+import * as ROLES from '../../constants/roles';
 
 import 'react-calendar/dist/Calendar.css';
 
-export class CreateAppointment extends Component {
+export class CreateAppointmentBase extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -91,4 +96,9 @@ export class CreateAppointment extends Component {
     }
 }
 
-export default CreateAppointment;
+const condition = authUser =>
+    authUser && !!authUser.roles[ROLES.PATIENT]
+
+const CreateAppointment = compose(withRouter, withAuthorization(condition))(CreateAppointmentBase);
+
+export default CreateAppointment

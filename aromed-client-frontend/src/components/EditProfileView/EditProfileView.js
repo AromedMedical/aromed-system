@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import { Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
-import * as ROUTES from '../../constants/routes';
-import { withFirebase } from '../Firebase';
 import { withRouter } from 'react-router-dom'
+import { Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 import { compose } from 'recompose';
+
+import { withFirebase } from '../Firebase';
+import { withAuthorization } from '../Session';
+import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
 
 import SideBar from '../../components/Sidebar/Sidebar';
 
@@ -13,10 +16,10 @@ const INITIAL_STATE = {
     lastname: '',
     dob: '',
     gender: '',
-    address:'',
-    phone:'',
-    height:'',
-    weight:'',
+    address: '',
+    phone: '',
+    height: '',
+    weight: '',
     error: null,
 };
 export class EditProFileBase extends Component {
@@ -38,30 +41,30 @@ export class EditProFileBase extends Component {
         this.setState({ error: '' });
         const { firstname, lastname, dob, gender, address, phone, height, weight, } = this.state;
 
-        if (firstname=== '' || lastname=== '' || dob=== '' || gender=== '' || address=== '' || phone=== '' || height=== '' || weight==='') {
+        if (firstname === '' || lastname === '' || dob === '' || gender === '' || address === '' || phone === '' || height === '' || weight === '') {
             this.setState({ error: 'All Fields are required' });
         }
         else {
             try {
                 await this.props.firebase
-                .profile().push({
-                    firstname: this.state.firstname,
-                    lastname: this.state.lastname,
-                    dob: this.state.dob,
-                    gender: this.state.gender,
-                    address: this.state.address,
-                    phone: this.state.phone,
-                    height: this.state.height,
-                    weight: this.state.weight,
-                });
+                    .profile().push({
+                        firstname: this.state.firstname,
+                        lastname: this.state.lastname,
+                        dob: this.state.dob,
+                        gender: this.state.gender,
+                        address: this.state.address,
+                        phone: this.state.phone,
+                        height: this.state.height,
+                        weight: this.state.weight,
+                    });
                 this.props.history.push(ROUTES.HOME);
-              } catch (error) {
+            } catch (error) {
                 this.setState({ error: error.message });
-              }
+            }
         }
     }
     render() {
-        
+
         const {
             firstname,
             lastname,
@@ -85,7 +88,7 @@ export class EditProFileBase extends Component {
                             <Col md="6">
                                 <FormGroup>
                                     <Label for="firstname">First Name</Label>
-                                    <Input type="text" name="firstname" id="firstname" onChange={this.handleChange} placeholder="Enter First Name" value={firstname}/>
+                                    <Input type="text" name="firstname" id="firstname" onChange={this.handleChange} placeholder="Enter First Name" value={firstname} />
                                 </FormGroup>
                             </Col>
                             <Col md="6">
@@ -112,12 +115,12 @@ export class EditProFileBase extends Component {
 
                         <FormGroup>
                             <Label for="address">Address</Label>
-                            <Input type="text" name="address" id="address" onChange={this.handleChange} placeholder="Enter Address" value={address}/>
+                            <Input type="text" name="address" id="address" onChange={this.handleChange} placeholder="Enter Address" value={address} />
                         </FormGroup>
 
                         <FormGroup>
                             <Label for="phone">Phone Number</Label>
-                            <Input type="tel" name="phone" id="phone" onChange={this.handleChange} placeholder="Enter Phone Number" value={phone}/>
+                            <Input type="tel" name="phone" id="phone" onChange={this.handleChange} placeholder="Enter Phone Number" value={phone} />
                         </FormGroup>
 
                         <Row>
@@ -125,7 +128,7 @@ export class EditProFileBase extends Component {
                                 <FormGroup>
                                     <Label for="height">Height</Label>
                                     <InputGroup>
-                                        <Input type="number" name="height" id="height" onChange={this.handleChange} placeholder="Height" value={height}/>
+                                        <Input type="number" name="height" id="height" onChange={this.handleChange} placeholder="Height" value={height} />
                                         <InputGroupAddon addonType="append">
                                             <InputGroupText>cm</InputGroupText>
                                         </InputGroupAddon>
@@ -136,7 +139,7 @@ export class EditProFileBase extends Component {
                                 <FormGroup>
                                     <Label for="weight">Weight</Label>
                                     <InputGroup>
-                                        <Input type="number" name="weight" id="weight" onChange={this.handleChange} placeholder="Weight" value={weight}/>
+                                        <Input type="number" name="weight" id="weight" onChange={this.handleChange} placeholder="Weight" value={weight} />
                                         <InputGroupAddon addonType="append">
                                             <InputGroupText>Kg</InputGroupText>
                                         </InputGroupAddon>
@@ -157,6 +160,10 @@ export class EditProFileBase extends Component {
         )
     }
 }
-const EditProfileView = compose(withRouter, withFirebase)(EditProFileBase);
+
+const condition = authUser =>
+    authUser && !!authUser.roles[ROLES.PATIENT]
+
+const EditProfileView = compose(withRouter, withFirebase, withAuthorization(condition))(EditProFileBase);
 
 export default EditProfileView;
