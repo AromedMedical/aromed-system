@@ -8,12 +8,15 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
+import { compose } from 'recompose';
 
 import { AuthUserContext } from '../Session';
+import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
-class Navigation extends React.Component {
+
+class NavigationBase extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,6 +28,10 @@ class Navigation extends React.Component {
         this.setState({
             isOpen: !this.state.isOpen
         });
+    }
+
+    signOutUser = () => {
+        this.props.firebase.doSignOut();
     }
 
     NavGuest() {
@@ -71,6 +78,9 @@ class Navigation extends React.Component {
                         <NavItem>
                             <NavLink href={ROUTES.ACCOUNT_SETTINGS} className="ml-3 text-uppercase">Settings</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink onClick={() => this.signOutUser()} className="ml-3 text-uppercase">Logout</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
@@ -96,6 +106,9 @@ class Navigation extends React.Component {
                         <NavItem>
                             <NavLink href={ROUTES.ACCOUNT_SETTINGS} className="ml-3 text-uppercase">Settings</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink onClick={() => this.signOutUser()} className="ml-3 text-uppercase">Logout</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
@@ -112,5 +125,7 @@ class Navigation extends React.Component {
         );
     }
 }
+
+const Navigation = compose(withFirebase)(NavigationBase);
 
 export default Navigation;
