@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
+import { withRouter } from 'react-router-dom'
+import { compose } from 'recompose';
 
 import SideBar from '../../components/Sidebar/Sidebar';
 
-export class PatientsHistory extends Component {
+import { withAuthorization } from '../Session';
+import * as ROLES from '../../constants/roles';
+
+export class PatientsHistoryBase extends Component {
     render() {
         return (
             <div className="col-lg-12" >
@@ -17,9 +22,9 @@ export class PatientsHistory extends Component {
                                 <h4 className="mb-3">Date and Time</h4>
                                 <div style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }} className="mb-5">
                                     <ListGroup>
-                                        <ListGroupItem tag="a" href="#" action>Dapibus ac facilisis in</ListGroupItem>
-                                        <ListGroupItem tag="a" href="#" action>Morbi leo risus</ListGroupItem>
-                                        <ListGroupItem tag="a" href="#" action>Porta ac consectetur ac</ListGroupItem>
+                                        <ListGroupItem tag="a" action>2020-05-08 12:00 PM</ListGroupItem>
+                                        <ListGroupItem tag="a" action>2020-05-25 04:00 PM</ListGroupItem>
+                                        <ListGroupItem tag="a" action>2020-07-06 10:00 AM</ListGroupItem>
                                     </ListGroup>
                                 </div>
                             </Col>
@@ -41,5 +46,10 @@ export class PatientsHistory extends Component {
         )
     }
 }
+
+const condition = authUser =>
+    authUser && !!authUser.roles[ROLES.PATIENT]
+
+const PatientsHistory = compose(withRouter, withAuthorization(condition))(PatientsHistoryBase);
 
 export default PatientsHistory

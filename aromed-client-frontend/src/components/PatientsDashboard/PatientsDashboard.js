@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Card, CardTitle, CardBody, Button, CardImg, Row, Col } from 'reactstrap';
+import { Container, Card, CardTitle, CardBody, CardImg, Row, Col } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose';
 import _ from 'lodash';
@@ -53,8 +53,8 @@ export class PatientsDashboardBase extends Component {
                             <CardBody>
                                 <CardTitle className="text-center" >{profile.firstname + ' ' + profile.lastname}</CardTitle>
                                 <hr />
-                                <Button className="btn-block">Select Profile</Button>
-                                <Button className="btn-block">Delete</Button>
+                                <Link className="btn btn-block btn-secondary" to={ROUTES.APPOINTMENT_UPCOMING}>Select Profile</Link>
+                                <Link className="btn btn-block btn-secondary" to={ROUTES.PROFILE_EDIT}>Edit Profile</Link>
                             </CardBody>
                         </Card>
                     </Col>

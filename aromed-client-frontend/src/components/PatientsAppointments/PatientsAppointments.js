@@ -1,63 +1,15 @@
 import React, { Component } from 'react'
-import { Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
+import { Col, Row, ListGroup } from 'reactstrap';
+import { withRouter } from 'react-router-dom'
+import { compose } from 'recompose';
 
 import SideBar from '../../components/Sidebar/Sidebar';
 
-const INITIAL_STATE = {
-    appointmets: [],
-};
+import { withAuthorization } from '../Session';
+import * as ROLES from '../../constants/roles';
 
-
-export class PatientsAppointments extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { ...INITIAL_STATE };
-
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    }
-
-    async componentDidMount() {
-        this.props.firebase
-            .appointment(authUser.uid)
-            .on("value", snapshot => {
-                if (snapshot.exists()) {
-                    const AppointmentList = Object.keys(snapshot.val()).map(key => ({
-                        ...snapshot.val()[key],
-                    }));
-                    this.setState({ appointmets: AppointmentList });
-                }
-            })
-    }
-
-    componentWillUnmount() {
-        this.props.firebase.appointment().off();
-    }
-
-    renderAppointments = () => {
-        const {
-            appointmets,
-        } = this.state;
-
-        return (
-            _.map(appointmets, (appointment) => {
-                return (
-                    <ListGroupItem tag="a" href="#" action>{appointment.date}</ListGroupItem>
-                )
-            })
-        )
-    }
-
+export class PatientsAppointmentsBase extends Component {
     render() {
-        const {
-            appointmets,
-        } = this.state.doctors;
-
         return (
             <div className="col-lg-12" >
                 <SideBar />
@@ -70,7 +22,6 @@ export class PatientsAppointments extends Component {
                                 <h4 className="mb-3">Date and Time</h4>
                                 <div style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }} className="mb-5">
                                     <ListGroup>
-                                        {this.renderAppointments()}
                                     </ListGroup>
                                 </div>
                             </Col>
@@ -86,5 +37,10 @@ export class PatientsAppointments extends Component {
         )
     }
 }
+
+const condition = authUser =>
+    authUser && !!authUser.roles[ROLES.PATIENT]
+
+const PatientsAppointments = compose(withRouter, withAuthorization(condition))(PatientsAppointmentsBase);
 
 export default PatientsAppointments
