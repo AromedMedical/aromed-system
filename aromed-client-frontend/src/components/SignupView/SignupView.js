@@ -53,7 +53,7 @@ class SignUpBase extends Component {
                 })
                 .then(() => {
                     this.setState({ ...INITIAL_STATE });
-                    this.props.history.push(ROUTES.LOGIN);
+                    this.props.history.push(ROUTES.PATIENT_DASHBOARD);
                 })
                 .catch(error => {
                     this.setState({ error: error.message });

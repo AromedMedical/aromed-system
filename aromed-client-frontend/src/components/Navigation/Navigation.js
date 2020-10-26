@@ -53,10 +53,13 @@ class Navigation extends React.Component {
         return (
             <Nav className="ml-auto" pills navbar>
                 <NavItem>
-                    <NavLink href={ROUTES.HOME} className="ml-3 text-uppercase">Home</NavLink>
+                    <NavLink href={ROUTES.APPOINTMENT_UPCOMING} className="ml-3 text-uppercase">Home</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href={ROUTES.SEARCH_DOCTORS} className="ml-3 text-uppercase">Doctors</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink href={ROUTES.ACCOUNT_SETTINGS} className="ml-3 text-uppercase">Settings</NavLink>
                 </NavItem>
             </Nav>
         );
@@ -66,13 +69,16 @@ class Navigation extends React.Component {
         return (
             <Nav className="ml-auto" pills navbar>
                 <NavItem>
-                    <NavLink href={ROUTES.HOME} className="ml-3 text-uppercase">Home</NavLink>
+                    <NavLink href={ROUTES.PATIENT_DASHBOARD} className="ml-3 text-uppercase">Home</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href={ROUTES.CREATE_APPOINTMENT} className="ml-3 text-uppercase">Appointment</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href={ROUTES.SEARCH_DOCTORS} className="ml-3 text-uppercase">Doctors</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink href={ROUTES.ACCOUNT_SETTINGS} className="ml-3 text-uppercase">Settings</NavLink>
                 </NavItem>
             </Nav>
         );
