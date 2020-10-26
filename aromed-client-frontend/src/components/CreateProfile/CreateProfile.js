@@ -4,8 +4,10 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
+import { withAuthorization } from '../Session';
 import { AuthUserContext } from '../Session';
 import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
 
 const INITIAL_STATE = {
     error: null,
@@ -191,7 +193,11 @@ class CreateProfileBase extends Component {
         )
     }
 }
-const CreateProfile = compose(withRouter, withFirebase)(CreateProfileBase);
+
+const condition = authUser =>
+    authUser && !!authUser.roles[ROLES.PATIENT]
+
+const CreateProfile = compose(withRouter, withFirebase, withAuthorization(condition))(CreateProfileBase);
 
 export { CreateProfileBase }
 

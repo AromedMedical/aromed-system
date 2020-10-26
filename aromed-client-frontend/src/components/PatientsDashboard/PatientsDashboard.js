@@ -5,11 +5,15 @@ import { compose } from 'recompose';
 import _ from 'lodash';
 
 import { withFirebase } from '../Firebase';
-import Images from "../../assets/images";
+import { withAuthorization } from '../Session';
 import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
+
+import Images from "../../assets/images";
 
 const INITIAL_STATE = {
     profiles: [],
+    authUser: null
 };
 
 export class PatientsDashboardBase extends Component {
@@ -79,6 +83,9 @@ export class PatientsDashboardBase extends Component {
     }
 }
 
-const PatientsDashboard = compose(withRouter, withFirebase)(PatientsDashboardBase);
+const condition = authUser =>
+    authUser && !!authUser.roles[ROLES.PATIENT]
+
+const PatientsDashboard = compose(withRouter, withFirebase, withAuthorization(condition))(PatientsDashboardBase);
 
 export default PatientsDashboard
