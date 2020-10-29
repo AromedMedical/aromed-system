@@ -14,12 +14,15 @@
 <a href="https://github.com/AromedMedical/aromed-system/graphs/contributors/"><img src="https://img.shields.io/github/contributors/AromedMedical/aromed-system.svg"></a>
 <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg"></a>
 </p>
+<p align="center">
+	<a href="https://aromed-f4f6a.web.app"><b>Live demo</b></a>
+</p>
 
 ## Getting Started
 
 ### Prerequisites
 
-Install the latest versions of [Node.js](https://github.com/nodejs/node) and [react](https://github.com/facebook/react)
+Install the latest versions of [Node.js](https://github.com/nodejs/node) and [React](https://github.com/facebook/react)
 
 ### Installing
 
@@ -40,17 +43,37 @@ Install the latest versions of [Node.js](https://github.com/nodejs/node) and [re
     ```
     cd aromed-client-frontend
     ```
+    
+    **Select Backend Project**
+    ```
+    cd aromed-backend
+    ```
 3. Update Firebase Configurations
+
+    **Admin/Client Frontend Project**
 
     + Rename `.env.example` to `.env`
     
     + Add following configurations,
     ```
-    REACT_APP_API_KEY=
-    REACT_APP_AUTH_DOMAIN=
-    REACT_APP_DATABASE_URL=
+    REACT_APP_API_KEY
+    REACT_APP_AUTH_DOMAIN
+    REACT_APP_DATABASE_URL
     ```
     
+    **Backend Project**
+
+    + Rename `.env.example` to `.env`
+    
+    + Add following configurations,
+    ```
+    REACT_APP_DATABASE_URL
+    ```
+
+    + Rename `credentials.example.json` to `credentials.json`
+    
+    + Add Firebase Service Account details
+
 3. Install packages:
 
     **Using npm**
@@ -87,7 +110,7 @@ Unit testing is done using [Jest Framework](https://jestjs.io) and [Enzyme](http
    ```
 
 ## Deployment
-This project is hosted on firebase. First, the app should be build before deploying.
+This project is hosted on firebase. React app should be build inorder to deploy.
 
 1. Build the App
 
@@ -97,7 +120,7 @@ This project is hosted on firebase. First, the app should be build before deploy
    ```
    **Using yarn**
    ```
-   yarn run build
+   yarn build
    ```
 
 2. Deploy to firebase
@@ -110,6 +133,8 @@ This project is hosted on firebase. First, the app should be build before deploy
 
 * [Bootstrap](https://github.com/twbs/bootstrap)
 * [React](https://github.com/facebook/react)
+* [Express](https://github.com/expressjs/express)
+* [NodeJs](https://github.com/nodejs/node)
 * [FireBase](https://firebase.google.com)
 
 ## Authors
