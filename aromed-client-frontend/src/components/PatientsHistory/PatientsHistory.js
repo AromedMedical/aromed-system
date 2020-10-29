@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
+import { Col, Row, ListGroup } from 'reactstrap';
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose';
 
@@ -22,9 +22,6 @@ export class PatientsHistoryBase extends Component {
                                 <h4 className="mb-3">Date and Time</h4>
                                 <div style={{ 'overflow-y': 'scroll', 'overflow-x': 'hidden' }} className="mb-5">
                                     <ListGroup>
-                                        <ListGroupItem tag="a" action>2020-05-08 12:00 PM</ListGroupItem>
-                                        <ListGroupItem tag="a" action>2020-05-25 04:00 PM</ListGroupItem>
-                                        <ListGroupItem tag="a" action>2020-07-06 10:00 AM</ListGroupItem>
                                     </ListGroup>
                                 </div>
                             </Col>
