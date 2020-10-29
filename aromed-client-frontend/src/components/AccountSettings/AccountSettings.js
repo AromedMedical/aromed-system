@@ -3,9 +3,8 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'recompose';
 
+import { withAuthorization } from '../Session';
 import { withFirebase } from '../Firebase';
-
-import { useAlert } from 'react-alert'
 
 const INITIAL_STATE = {
     error: null,
@@ -14,8 +13,6 @@ const INITIAL_STATE = {
 };
 
 class AccountSettingsBase extends Component {
-    alert = useAlert()
-
     constructor(props) {
         super(props);
         this.state = { ...INITIAL_STATE };
@@ -84,6 +81,10 @@ class AccountSettingsBase extends Component {
         )
     }
 }
-const AccountSettings = compose(withRouter, withFirebase)(AccountSettingsBase);
+
+const condition = authUser =>
+    authUser
+
+const AccountSettings = compose(withRouter, withFirebase, withAuthorization(condition))(AccountSettingsBase);
 
 export default AccountSettings;

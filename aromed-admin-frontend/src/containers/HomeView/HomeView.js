@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
 export class HomeView extends Component {
@@ -20,11 +21,11 @@ export class HomeView extends Component {
                     </FormGroup>
 
                     <FormGroup className="mt-5">
-                        <Button className="btn-block">Login</Button>
+                        <Link to='/profiles'><Button className="btn-block">Login</Button></Link>
                     </FormGroup>
 
                     <FormGroup className="text-center">
-                        <Label><a href="/reset">Forgotten Password?</a></Label>
+                        <Label><Link to='/reset'>Forgotten Password?</Link></Label>
                     </FormGroup>
                 </Form>
             </div>

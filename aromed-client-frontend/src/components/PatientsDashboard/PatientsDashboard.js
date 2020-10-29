@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
-import { Container, Card, CardTitle, CardBody, Button, CardImg, Row, Col } from 'reactstrap';
+import { Container, Card, CardTitle, CardBody, CardImg, Row, Col } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'recompose';
 import _ from 'lodash';
 
 import { withFirebase } from '../Firebase';
-import Images from "../../assets/images";
+import { withAuthorization } from '../Session';
 import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
+
+import Images from "../../assets/images";
 
 const INITIAL_STATE = {
     profiles: [],
+    authUser: null
 };
 
 export class PatientsDashboardBase extends Component {
@@ -49,8 +53,8 @@ export class PatientsDashboardBase extends Component {
                             <CardBody>
                                 <CardTitle className="text-center" >{profile.firstname + ' ' + profile.lastname}</CardTitle>
                                 <hr />
-                                <Button className="btn-block">Select Profile</Button>
-                                <Button className="btn-block">Delete</Button>
+                                <Link className="btn btn-block btn-secondary" to={ROUTES.APPOINTMENT_UPCOMING}>Select Profile</Link>
+                                <Link className="btn btn-block btn-secondary" to={ROUTES.PROFILE_EDIT}>Edit Profile</Link>
                             </CardBody>
                         </Card>
                     </Col>
@@ -79,6 +83,9 @@ export class PatientsDashboardBase extends Component {
     }
 }
 
-const PatientsDashboard = compose(withRouter, withFirebase)(PatientsDashboardBase);
+const condition = authUser =>
+    authUser && !!authUser.roles[ROLES.PATIENT]
+
+const PatientsDashboard = compose(withRouter, withFirebase, withAuthorization(condition))(PatientsDashboardBase);
 
 export default PatientsDashboard
