@@ -49,6 +49,13 @@ class Firebase {
 
                         next(authUser);
                     });
+
+                authUser.getIdToken().then(token => {
+                    if (token) {
+                        localStorage.setItem("@token", token);
+                    }
+                });
+
             } else {
                 fallback();
             }

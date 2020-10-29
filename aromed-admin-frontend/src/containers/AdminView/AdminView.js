@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListGroup, ListGroupItem, Label, InputGroup, InputGroupAddon, InputGroupText, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
+import { ListGroup, Label, Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 
 import SideBar from '../../components/Sidebar/Sidebar';
 

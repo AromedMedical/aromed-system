@@ -79,11 +79,11 @@ Unit testing is done using [Jest Framework](https://jestjs.io) and [Enzyme](http
 
    **Using npm**
    ```
-   npm test
+   npm run test
    ```
    **Using yarn**
    ```
-   yarn run test
+   yarn test
    ```
 
 ## Deployment

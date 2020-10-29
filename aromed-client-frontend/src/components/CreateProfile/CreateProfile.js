@@ -44,7 +44,7 @@ class CreateProfileBase extends Component {
         return d.toISOString().slice(0, 10) === dateString;
     }
 
-    handleValidation(firstname, lastname, dob, gender, address, phone) {
+    handleValidation(firstname, lastname, dob, address, phone) {
         let formIsValid = true;
         let errors = {};
 
@@ -100,22 +100,37 @@ class CreateProfileBase extends Component {
         event.preventDefault();
         this.setState({ error: '' });
         const { firstname, lastname, dob, gender, address, phone } = this.state;
-        window.alert(firstname + lastname + dob + gender + address + phone);
-        if (this.handleValidation(firstname, lastname, dob, gender, address, phone)) {
-            this.props.firebase
-                .profile(authUser.uid)
-                .push({
-                    firstname,
-                    lastname,
-                    dob,
-                    gender,
-                    address,
-                    phone,
-                }).then(() => {
-                    this.setState({ ...INITIAL_STATE });
-                    this.props.history.push(ROUTES.PATIENT_DASHBOARD);
+
+        if (this.handleValidation(firstname, lastname, dob, address, phone)) {
+            fetch("https://us-central1-aromed-f4f6a.cloudfunctions.net/app/api/profile", {
+                method: 'POST',
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("@token"),
+                },
+                body: JSON.stringify({
+                    uid: authUser.uid,
+                    firstname: firstname,
+                    lastname: lastname,
+                    dob: dob,
+                    gender: gender,
+                    address: address,
+                    phone: phone
                 })
-                .catch(error => {
+            })
+                .then(response => response.text())
+                .then(data => {
+                    let obj = JSON.parse(data);
+
+                    console.log(obj);
+
+                    if (obj.status) {
+                        this.setState({ ...INITIAL_STATE });
+                        this.props.history.push(ROUTES.PATIENT_DASHBOARD);
+                    }
+                    else {
+                        this.setState({ error: 'Invalid data' }); // parse obj.errors
+                    }
+                }).catch(error => {
                     this.setState({ error: error.message });
                 });
         }
